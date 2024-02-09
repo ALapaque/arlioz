@@ -7,7 +7,7 @@ function App() {
 		<div className="container">
 			<div className="row">
 				<div className="col">
-					<div className="comming-soon">
+					<div className="coming-soon">
 							<img className={'logo'} src={arliozLogo} alt={'arlioz-logo'}/>
 						<div className="coming-soon-container">
 							<p className="coming-soon-container_text">COMING SOON</p>

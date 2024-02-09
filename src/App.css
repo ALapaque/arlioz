@@ -1,5 +1,5 @@
 
-.comming-soon {
+.coming-soon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,16 +7,16 @@
   position: relative;
   height: 100vh;
 }
-.comming-soon .logo {
+.coming-soon .logo {
   width: 80vw;
   max-height: 500px;
   max-width: 300px;
 }
-.comming-soon .coming-soon-container {
+.coming-soon .coming-soon-container {
   width: 100vw;
   text-align: center;
 }
-.comming-soon .coming-soon-container .coming-soon-container_text {
+.coming-soon .coming-soon-container .coming-soon-container_text {
   color: #efefef;
   letter-spacing: 15px;
   font-size: 20px;
