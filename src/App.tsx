@@ -10,7 +10,7 @@ function App() {
 					<div className="comming-soon">
 							<img className={'logo'} src={arliozLogo} alt={'arlioz-logo'}/>
 						<div className="coming-soon-container">
-							<p className="coming-soon-container_text">COMMING SOON</p>
+							<p className="coming-soon-container_text">COMING SOON</p>
 						</div>
 					</div>
 				</div>
