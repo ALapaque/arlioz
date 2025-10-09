@@ -1,5 +1,5 @@
 import './App.css'
-import arliozLogo from './assets/arlioz.svg'
+import arliozLogo from './assets/arlioz.png'
 
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
 				<div className="col">
 					<div className="coming-soon">
 							<img className={'logo'} src={arliozLogo} alt={'arlioz-logo'}/>
+							<h1>Arlioz</h1>
 						<div className="coming-soon-container">
 							<p className="coming-soon-container_text">COMING SOON</p>
 						</div>

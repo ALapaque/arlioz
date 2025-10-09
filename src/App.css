@@ -1,3 +1,9 @@
+h1 {
+  color: white;
+  font-size: 5rem;
+  margin: 0;
+}
+
 
 .coming-soon {
   display: flex;
@@ -21,4 +27,3 @@
   letter-spacing: 15px;
   font-size: 20px;
 }
-
