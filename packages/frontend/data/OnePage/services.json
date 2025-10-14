@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Crossplatform development",
+    "image": "https://cdn-icons-png.flaticon.com/512/2645/2645725.png"
+  },
+  {
+    "id": 2,
+    "title": "Web development",
+    "image": "https://cdn-icons-png.flaticon.com/512/7991/7991055.png"
+  },
+  {
+    "id": 3,
+    "title": "Project stack architecture",
+    "image": "https://cdn-icons-png.flaticon.com/512/8016/8016635.png"
+  },
+  {
+    "id": 4,
+    "title": "Website optimization",
+    "image": "https://cdn-icons-png.flaticon.com/512/11517/11517859.png"
+  },
+  {
+    "id": 6,
+    "title": "Frontend architecture",
+    "image": "https://cdn-icons-png.flaticon.com/512/2721/2721305.png"
+  }
+]

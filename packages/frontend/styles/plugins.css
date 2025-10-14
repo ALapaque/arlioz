@@ -1,0 +1,45 @@
+/*-----------------------------------------------------------------------------------
+
+	Theme Name: Ravo
+	Theme URI: http://
+	Description: Creative agency & portfolio
+	Author: ui-themez
+	Author URI: http://themeforest.net/user/ui-themez
+	Version: 1.0
+
+-----------------------------------------------------------------------------------*/
+
+/* ----------------------------------------------------------------
+			[ All Css Plugins & Helper Classes File ]
+-----------------------------------------------------------------*/
+
+/* == bootstrap == */
+@import url("packages/frontend/public/assets/css/pluginsap.min.css");
+
+/* == animate css == */
+@import url("packages/frontend/public/assets/css/plugins.min.css");
+
+/* == ionicons icon font == */
+@import url("packages/frontend/public/assets/css/pluginss.min.css");
+
+/* == pe-icon-7-stroke == */
+@import url("packages/frontend/public/assets/css/plugins-7-stroke.css");
+
+/* == fontawesome icon font == */
+@import url("packages/frontend/public/assets/css/pluginssome-all.min.css");
+
+/* == justifiedGallery.min == */
+@import url("packages/frontend/public/assets/css/pluginsedGallery.min.css");
+
+/* == magnific-popup == */
+@import url("packages/frontend/public/assets/css/pluginsc-popup.css");
+
+/* == YouTubePopUp == */
+@import url("packages/frontend/public/assets/css/pluginsPopUp.css");
+
+/* == slick carousel == */
+@import url("packages/frontend/public/assets/css/pluginsss");
+@import url("packages/frontend/public/assets/css/pluginsheme.css");
+
+/* == swiper.min font == */
+@import url("packages/frontend/public/assets/css/pluginsmin.css");
