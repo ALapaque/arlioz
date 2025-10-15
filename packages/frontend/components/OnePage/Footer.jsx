@@ -94,7 +94,7 @@ function Footer({ lightMode }) {
               <div className="col-lg-8">
                 <div className="copyright d-flex">
                   <div className="ml-auto">
-                    <p className="fz-13">© 2023 {appData.website.name} is Powered by <span className="underline"><a href={appData.author.link} target="_blank">{appData.author.name}</a></span></p>
+                    <p className="fz-13">© 2025 {appData.website.name} is Powered by <span className="underline"><a href={appData.author.link} target="_blank">{appData.author.name}</a></span></p>
                   </div>
                 </div>
               </div>

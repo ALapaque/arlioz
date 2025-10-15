@@ -3,15 +3,16 @@ import styled from '@emotion/styled'
 
 const Wrapper = styled.div`
   display: inline-flex;
-  gap: 1rem;
+  gap: .5rem;
   align-items: center;
 `
 
 const CompanyNameWrapper = styled.h1`
-  font-size: 1.5em;
   transition: all 0.5s ease-in-out;
   padding: 0;
   margin: 0;
+  font-family: "Caveat", cursive;
+  font-size: 2.5rem;
 `
 
 const LogoWrapper = styled.img`

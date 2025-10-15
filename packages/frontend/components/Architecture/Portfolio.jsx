@@ -16,7 +16,7 @@ function Portfolio() {
             <div className='line'></div>
           </div>
           <div className='title'>
-            <h6 className='sub-title'>Portfolio.</h6>
+            <h6 className='sub-title'>Projects</h6>
           </div>
         </div>
         <div className='row justify-content-center'>

@@ -3,8 +3,7 @@ import Link from 'next/link';
 //= Scripts
 import loadBackgroudImages from '@/common/loadBackgroudImages';
 import isInView from '@/common/isInView';
-//= Data
-import data from '@/data/OnePage/portfolio.json';
+import appData from "@/data/app-data";
 
 function Portfolio() {
   useEffect(() => {
@@ -59,7 +58,7 @@ function Portfolio() {
           <div className='col-lg-6 rest' style={{ position: 'relative' }}>
             <div className='left' id='sticky_item'>
               {
-                data.map((item, index) => (
+                appData.website.projects.map((item, index) => (
                   <div id={`tab-${index + 1}`} className='img bg-img'
                        data-background={item.image} key={index}/>
                 ))
@@ -68,7 +67,7 @@ function Portfolio() {
           </div>
           <div className='col-lg-6 sub-bg right'>
             {
-              data.map((item, index) => (
+              appData.website.projects.map((item, index) => (
                 <div className={`cont ${index === 0 ? 'active' : ''}`} data-tab={`tab-${index + 1}`} key={index}>
                   <div className='img-hiden'>
                     <img src={item.image} alt={item.title}/>

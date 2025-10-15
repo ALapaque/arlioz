@@ -7,6 +7,7 @@ import '@/styles/modal-video.css';
 import 'swiper/css/bundle';
 import '@/styles/globals.css';
 import useEventTracker from '@/hooks/useEventTracker';
+import appData from "@/data/app-data";
 
 function App({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -16,11 +17,14 @@ function App({ Component, pageProps }) {
   return getLayout(
     <>
       <Head>
-        <title>Amaury Lapaque</title>
+        <title>{appData.company.name}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet"/>
       </Head>
 
       <Component {...pageProps} />

@@ -49,7 +49,7 @@ function About() {
               />
               <div className='exp main-bg'>
                 <h2>{appData.about.year}</h2>
-                <h6 className='sub-title'>Years Of Existence</h6>
+                <h6 className='sub-title'>Created in</h6>
               </div>
             </div>
           </div>
