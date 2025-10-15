@@ -300,7 +300,7 @@ const appData = {
     ],
   },
   about: {
-    img: '/assets/images/about.jpg',
+    img: '/assets/images/meeting.jpg',
     year: 2018
   },
   author: {
@@ -309,12 +309,26 @@ const appData = {
   },
   company: {
     name: 'Arlioz',
-    logo: 'assets/logo/arlioz.svg',
+    logo: '/assets/logo/arlioz.svg',
     address: '',
     email: 'contact@arlioz.be',
     phone: '' ?? null,
     facebook: '' ?? null,
-    linkedin: '' ?? null
+    linkedin: '' ?? null,
+    team: [
+      {
+        id: 1,
+        picture: '/assets/images/team/guy.jpg',
+        position: 'IT architect & GDPR expert',
+        name: 'Guy MOINS'
+      },
+      {
+        id: 2,
+        picture: '/assets/images/team/amaury.jpg',
+        position: 'Fullstack Developer',
+        name: 'Amaury LAPAQUE'
+      }
+    ]
   }
 }
 

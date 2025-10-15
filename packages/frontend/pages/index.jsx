@@ -16,6 +16,7 @@ import Navigation from '@/components/Showcases/Navigation';
 import Menu from '@/components/Showcases/Menu';
 import appData from '@/data/app-data';
 import useMenu from '@/hooks/useMenu';
+import Team from "@/components/OnePage/Team";
 
 function HomeOnePageLight() {
   const { isOpen, toggle, close: closeDrawer } = useMenu(true, true)
@@ -40,6 +41,7 @@ function HomeOnePageLight() {
         <Marq />
         <Services />
         <Portfolio />
+        <Team />
         <Contact />
       </main>
       <Footer lightMode />

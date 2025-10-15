@@ -7,6 +7,8 @@ function Marq() {
       style={{
         maxWidth: '100vw',
         overflow: 'hidden',
+        transform: 'rotate(-7deg)',
+        width: '110%;'
       }}>
       <div className="container-fluid">
         <div className="row">
@@ -15,36 +17,36 @@ function Marq() {
               <div className="slide-har st1 non-strok">
                 <div className="box">
                   <div className="item">
-                    <h4>Angular</h4>
+                    <h4> Angular | </h4>
                   </div>
                   <div className="item">
-                    <h4><span className="stroke opacity-4">ReactJS / NextJS</span></h4>
+                    <h4><span className="stroke opacity-4"> ReactJS | NextJS | </span></h4>
                   </div>
                   <div className="item">
-                    <h4>VueJS / NuxtJS</h4>
+                    <h4> VueJS | NuxtJS | </h4>
                   </div>
                   <div className="item">
-                    <h4><span className="stroke opacity-4">NestJS</span></h4>
+                    <h4><span className="stroke opacity-4"> NestJS | </span></h4>
                   </div>
                   <div className="item">
-                    <h4>TypeScript</h4>
+                    <h4> TypeScript | </h4>
                   </div>
                 </div>
                 <div className="box">
                   <div className="item">
-                    <h4>Angular</h4>
+                    <h4> Angular | </h4>
                   </div>
                   <div className="item">
-                    <h4><span className="stroke opacity-4">ReactJS / NextJS</span></h4>
+                    <h4><span className="stroke opacity-4"> ReactJS | NextJS | </span></h4>
                   </div>
                   <div className="item">
-                    <h4>VueJS / NuxtJS</h4>
+                    <h4> VueJS | NuxtJS | </h4>
                   </div>
                   <div className="item">
-                    <h4><span className="stroke opacity-4">NestJS</span></h4>
+                    <h4><span className="stroke opacity-4"> NestJS | </span></h4>
                   </div>
                   <div className="item">
-                    <h4>TypeScript</h4>
+                    <h4><span className="stroke opacity-4"> TypeScript | </span></h4>
                   </div>
                 </div>
               </div>
