@@ -8,7 +8,7 @@ function Marq() {
         maxWidth: '100vw',
         overflow: 'hidden',
         transform: 'rotate(-7deg)',
-        width: '110%;'
+        width: '110%'
       }}>
       <div className="container-fluid">
         <div className="row">
