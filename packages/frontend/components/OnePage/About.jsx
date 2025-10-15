@@ -21,7 +21,7 @@ function About() {
                   <span className='up-text'>We bring together two worlds</span>
                 </span>
                 <span className='sideup-text'>
-                  <span className='up-text'><span className='sub-font'>— privacy and digital design —</span></span>
+                  <span className='up-text'><span className='sub-font'> privacy and digital design </span></span>
                 </span>
                 <span className='sideup-text'>
                   <span className='up-text'>to help companies grow <span className='sub-font'>safely</span> and <span className='sub-font'>smartly</span></span>
