@@ -55,7 +55,8 @@ function Menu({ closeDrawer, lightMode }) {
                 <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={toggleSubMenu}>
                   <div className='o-hidden'>
                     <div className='link cursor-pointer dmenu'><span className='fill-text' data-text='Home'>Home</span>
-                      <i></i></div>
+                      <i></i>
+                    </div>
                   </div>
                   <div className='sub-menu'>
                     <ul>

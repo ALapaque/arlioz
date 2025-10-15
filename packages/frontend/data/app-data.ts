@@ -13,6 +13,11 @@ const appData = {
     services: [
       {
         "id": 1,
+        "title": "GDPR consultancy",
+        "image": "https://cdn-icons-png.flaticon.com/512/2059/2059136.png"
+      },
+      {
+        "id": 2,
         "title": "Crossplatform development",
         "image": "https://cdn-icons-png.flaticon.com/512/2645/2645725.png"
       },
@@ -35,7 +40,7 @@ const appData = {
         "id": 6,
         "title": "Frontend architecture",
         "image": "https://cdn-icons-png.flaticon.com/512/2721/2721305.png"
-      }
+      },
     ],
     projects: [
       {
@@ -67,7 +72,7 @@ const appData = {
         "type": "Website/Widget",
         "company": {
           "name": "@Restomax",
-          "href": "https://restomax.be"
+          "href": "https://www.restomax.be/en/restaurant-book"
         },
         "title": "Restomax Book",
         "text": "Restomax Book: Your new booking system",
