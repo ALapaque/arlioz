@@ -3,6 +3,6 @@ export default function handler(req, res) {
 		'User-agent: *\n' +
 		'Allow: /\n' +
 		'\n' +
-		'Sitemap: https://amaury-lapaque.io/sitemap.xml' +
+		'Sitemap: https://arlioz.be/sitemap.xml' +
 		'')
 }

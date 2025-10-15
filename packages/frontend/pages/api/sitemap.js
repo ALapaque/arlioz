@@ -10,27 +10,27 @@ export default function handler(req, res) {
 
 
 <url>
-  <loc>https://amaury-lapaque.io/</loc>
+  <loc>https://arlioz.be/</loc>
   <lastmod>2023-09-23T10:51:02+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://amaury-lapaque.io/project/Messenger</loc>
+  <loc>https://arlioz.be/project/Messenger</loc>
   <lastmod>2023-09-23T10:51:02+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://amaury-lapaque.io/project/My%2520planning</loc>
+  <loc>https://arlioz.be/project/My%2520planning</loc>
   <lastmod>2023-09-23T10:51:02+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://amaury-lapaque.io/project/Jk%2520studio</loc>
+  <loc>https://arlioz.be/project/Jk%2520studio</loc>
   <lastmod>2023-09-23T10:51:02+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://amaury-lapaque.io/project/Tesla</loc>
+  <loc>https://arlioz.be/project/Tesla</loc>
   <lastmod>2023-09-23T10:51:02+00:00</lastmod>
   <priority>0.80</priority>
 </url>
