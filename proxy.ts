@@ -17,9 +17,27 @@ function detectLocale(acceptLanguage: string | null): Locale {
   return defaultLocale;
 }
 
+/** URLs of the previous site (`/project/<title>`), kept alive as permanent redirects. */
+const legacyProjects: Record<string, string> = {
+  'jk studio': 'jk-studio',
+  'restomax book': 'restomax-book',
+};
+
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const [, first, second, ...rest] = pathname.split('/');
+
+  if (first === 'project') {
+    const title = decodeURIComponent(second ?? '')
+      .trim()
+      .toLowerCase();
+    const slug = legacyProjects[title];
+    const url = request.nextUrl.clone();
+    url.search = '';
+    url.pathname = slug ? `/fr/${routeSegments.work.fr}/${slug}` : '/fr';
+    url.hash = slug ? '' : 'realisations';
+    return NextResponse.redirect(url, 308);
+  }
 
   if (isLocale(first)) {
     if (first === 'fr' || !second) return NextResponse.next();

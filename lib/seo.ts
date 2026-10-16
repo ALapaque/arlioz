@@ -79,7 +79,9 @@ const absolute = (path: string) => `${site.url}${path}`;
 export function organizationJsonLd(locale: Locale, content: SiteContent) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    // ProfessionalService is a LocalBusiness, itself an Organization: local search signals
+    // (address, area served) without losing the organization semantics.
+    '@type': 'ProfessionalService',
     '@id': `${site.url}/#organization`,
     name: site.name,
     url: absolute(localePath(locale)),
@@ -97,8 +99,14 @@ export function organizationJsonLd(locale: Locale, content: SiteContent) {
     },
     vatID: site.vatId,
     identifier: site.companyNumber,
-    areaServed: { '@type': 'Country', name: 'Belgium' },
+    areaServed: [
+      { '@type': 'Country', name: 'Belgium' },
+      { '@type': 'City', name: 'Charleroi' },
+      { '@type': 'AdministrativeArea', name: 'Wallonie' },
+      { '@type': 'AdministrativeArea', name: 'Bruxelles-Capitale' },
+    ],
     knowsLanguage: ['fr', 'en'],
+    image: absolute(site.logo),
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
