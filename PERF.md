@@ -8,10 +8,12 @@ Mesures prises sur `pnpm build && pnpm start` en local (Node 22, Chromium 141 he
 
 | Page                    | Perf | A11y | Best practices | SEO | FCP   | LCP   | CLS | TBT    |
 | ----------------------- | ---- | ---- | -------------- | --- | ----- | ----- | --- | ------ |
-| Accueil `/fr` — mobile  | 93   | 100  | 100            | 100 | 1,2 s | 3,2 s | 0   | 50 ms  |
-| Accueil `/fr` — desktop | 100  | 100  | 100            | 100 | 0,4 s | 0,7 s | 0   | 0 ms   |
-| Étude de cas — mobile   | 92   | 100  | 100            | 100 | 1,2 s | 3,0 s | 0   | 100 ms |
-| Étude de cas — desktop  | 99   | 100  | 100            | 100 | 0,3 s | 0,9 s | 0   | 0 ms   |
+| Accueil `/fr` — mobile  | 92   | 100  | 100            | 100 | 1,1 s | 3,2 s | 0   | 110 ms |
+| Accueil `/fr` — desktop | 100  | 100  | 100            | 100 | 0,3 s | 0,7 s | 0   | 0 ms   |
+| Étude de cas — mobile   | 92   | 100  | 100            | 100 | 1,1 s | 3,3 s | 0   | 50 ms  |
+| Étude de cas — desktop  | 100  | 100  | 100            | 100 | 0,3 s | 0,8 s | 0   | 0 ms   |
+
+(Mobile : variance de ± 4 points d'un run à l'autre sur le LCP simulé des études de cas, 87 à 94.)
 
 Le seul écart avec les cibles est le LCP mobile **simulé**. Le LCP de l'accueil est le `<h1>` (texte HTML, polices
 préchargées) : le chiffre vient du modèle « 4G lent » appliqué au document (~26 kB gzip, dont le payload RSC) et aux
@@ -40,9 +42,12 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
   avec `sizes` adaptés ; aucune image > 200 kB.
 - Le hero n'a plus d'image : son LCP est le `<h1>`, son visuel un `<canvas>` WebGL transparent (aucun CLS, rien à
   télécharger) qui ne démarre qu'après `requestIdleCallback`.
-- Polices : 4 fichiers latin auto-hébergés (`next/font/local`, `display: swap`, métriques de fallback ajustées → CLS 0) :
-  Bricolage Grotesque 77 kB, Instrument Sans 30 kB, Instrument Serif italique 22 kB (deux mots du H1),
-  JetBrains Mono 31 kB (non préchargée).
+- Polices : 5 fichiers latin auto-hébergés (`next/font/local`, `display: swap`, métriques de fallback ajustées → CLS 0),
+  générés par `scripts/fonts/subset.py` (fonttools : sous-ensemble latin, instanciation) : Bricolage Grotesque en
+  deux instances statiques 500 et 600 à l'optical size 96 (20 + 20 kB, au lieu d'une variable de 77 kB ; le site
+  n'utilise que ces deux graisses), Instrument Sans variable 400–600 (26 kB), Instrument Serif italique 12 kB (deux
+  mots du H1), JetBrains Mono instance 500 (19 kB, non préchargée). 105 kB au lieu de 164 kB.
+- Logo PNG 512 px du manifest : 36 kB (palette) au lieu de 128 kB.
 
 ## Décisions prises pour tenir le budget
 
@@ -75,6 +80,23 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
    la reconstruit. Un repli CSS « grille de points statique » a été essayé et retiré : en Firefox logiciel
    il coûtait autant que l'ancien logo flottant (36–40 frames > 33 ms contre 25–32 sans). Mesure Firefox headless
    après le changement : 25 à 32 frames > 33 ms sur ~210 (35 à 39 avec l'ancien hero).
+
+## Pourquoi le score mobile plafonne à 92–93
+
+Le LCP mobile **simulé** (3,0–3,2 s) ne dépend presque pas des polices : Lighthouse estime le LCP d'un texte en
+moyennant un graphe « optimiste » (≈ FCP) et un graphe « pessimiste » qui attend toutes les ressources démarrées
+avant le LCP observé, soit ici les chunks JavaScript (React + runtime App Router ≈ 160 kB) en plus des polices.
+Mesures de contrôle (local, mêmes conditions) :
+
+| Variante                          | Perf | LCP simulé | Observé en réel |
+| --------------------------------- | ---- | ---------- | --------------- |
+| Site complet                      | 92   | 3,2 s      | 185 ms          |
+| Polices bloquées (`*.woff2`)      | 95   | 2,8 s      |                 |
+| JavaScript bloqué (`chunks/*.js`) | 99   | 2,1 s      |                 |
+
+Même sans aucun JavaScript le modèle ne donne pas 100 : avec React et l'hydratation, 92–95 est le plafond de cette
+simulation. Les données réelles (Core Web Vitals, ce que Google utilise) sont au vert : LCP = FCP ≈ 480 ms en CPU ×4.
+`font-display: optional` sur les polices secondaires a été essayé : aucun gain de score, donc `swap` est conservé.
 
 ## Vérifications complémentaires
 

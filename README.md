@@ -13,8 +13,9 @@ Rebuild complet (v3) à partir de la maquette Claude Design « Arlioz — Site v
   des courants de lumière orange → turquoise sur une grille de points, agités par la souris, un clic libère une tache.
   Ne tourne que sur GPU (rien en rendu logiciel, une image fixe en `prefers-reduced-motion`), en pause hors écran et
   onglet caché.
-- **Médias** : `next/image` (AVIF/WebP), polices auto-hébergées via `next/font/local` (latin uniquement) : trois
-  variables + Instrument Serif italique pour les deux mots mis en avant du titre.
+- **Médias** : `next/image` (AVIF/WebP), polices auto-hébergées via `next/font/local`, sous-ensembles latin
+  générés par `scripts/fonts/subset.py` (Bricolage en deux instances statiques 500/600, Instrument Sans variable
+  400–600, Instrument Serif italique pour les deux mots du titre, JetBrains Mono 500) : 105 kB au total.
 - **Qualité** : ESLint (config Next + Prettier), Prettier, `@next/bundle-analyzer`, Vercel Analytics & Speed Insights.
 
 ## Commandes
@@ -25,6 +26,7 @@ pnpm dev            # http://localhost:3000 (redirige vers /fr ou /en)
 pnpm build && pnpm start
 pnpm check          # typecheck + lint + prettier --check
 pnpm analyze        # build avec le bundle analyzer (.next/analyze)
+python3 scripts/fonts/subset.py   # régénère app/fonts à partir de scripts/fonts/src (pip install fonttools brotli)
 ```
 
 Node 22+, pnpm 10.
