@@ -8,7 +8,9 @@ import 'lenis/dist/lenis.css';
 import '../globals.css';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
+import { LoopGuard } from '@/components/motion/LoopGuard';
 import { ScrollRevealFallback } from '@/components/motion/ScrollRevealFallback';
+import { ScrollState } from '@/components/motion/ScrollState';
 import { SmoothScroll } from '@/components/motion/SmoothScroll';
 import { getContent } from '@/content';
 import { htmlLang, isLocale, locales } from '@/lib/i18n';
@@ -89,6 +91,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             <Footer locale={locale} content={content} year={year} />
           </div>
           <ScrollRevealFallback />
+          <LoopGuard />
+          <ScrollState />
         </SmoothScroll>
         {onVercel && (
           <>

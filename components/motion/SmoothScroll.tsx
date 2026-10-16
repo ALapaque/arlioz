@@ -2,19 +2,21 @@
 
 import { type LenisRef, ReactLenis } from 'lenis/react';
 import { useEffect, useRef, type ReactNode } from 'react';
+import { debugFlag } from '@/lib/debug-flags';
 import { ScrollRestoration } from './ScrollRestoration';
 
 /**
  * Lenis smooth scrolling on the window. Lenis drives the native scroll position,
- * so CSS scroll-driven animations and ScrollTrigger keep working unchanged.
- * Disabled for `prefers-reduced-motion: reduce`.
+ * so CSS scroll-driven animations keep working unchanged.
+ * Disabled for `prefers-reduced-motion: reduce` (and `?lenis=off` while investigating).
  */
 export function SmoothScroll({ children }: { children: ReactNode }) {
   const ref = useRef<LenisRef>(null);
 
   useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (query.matches) ref.current?.lenis?.destroy();
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || debugFlag('lenis') === 'off') ref.current?.lenis?.destroy();
+    if (debugFlag('loops') === 'off') document.documentElement.classList.add('no-loops');
   }, []);
 
   return (

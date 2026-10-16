@@ -49,7 +49,11 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
 2. **Glows sans `filter: blur()`** : les halos de la maquette sont rendus par un `radial-gradient` mis à l'échelle
    (`components/ui/Glow.tsx`). Un `blur(110px)` sur des disques de 300 px forçait une rastérisation coûteuse avant
    le premier paint du hero (LCP mobile 3,6 s → 2,9 s à iso-conditions).
-3. **Reveals en CSS scroll-driven** (`animation-timeline: view()`), zéro JS, repli GSAP chargé à la demande.
+3. **Reveals en CSS scroll-driven** (`animation-timeline: view()`), zéro JS. Firefox stable n'a pas encore
+   `animation-timeline` : il reçoit `html.no-sda`, contenu visible sans reveal et boucles en pause pendant
+   le scroll. Mesure en Firefox headless (compositing logiciel, 60 crans de molette) : repli GSAP
+   ScrollTrigger → 56 à 68 frames > 33 ms sur ~190 ; transitions CSS sur les blocs → 50 à 62 ; titres seuls
+   → 26 ; statique → 3 à 4 (0 sur une étude de cas). Lenis n'y est pour rien (`?lenis=off` : aucun gain).
 4. **`content-visibility: auto`** sur les sections basses des études de cas. Pas sur l'accueil : ses sections sont des
    cibles d'ancres (`#contact`, `#equipe`…) et la hauteur estimée faussait la position d'arrivée avec Lenis.
 5. **Hero LCP-safe** : le visuel du hero est animé en `scale` uniquement (jamais `opacity: 0` au départ), les lignes
