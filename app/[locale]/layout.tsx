@@ -33,6 +33,16 @@ const instrument = localFont({
   adjustFontFallback: 'Arial',
 });
 
+/** Italic serif used only for the two highlighted promises of the hero title. */
+const instrumentSerif = localFont({
+  src: '../fonts/instrument-serif-italic-latin.woff2',
+  variable: '--font-instrument-serif',
+  weight: '400',
+  style: 'italic',
+  display: 'swap',
+  adjustFontFallback: 'Times New Roman',
+});
+
 const jetbrains = localFont({
   src: '../fonts/jetbrains-mono-latin.woff2',
   variable: '--font-jetbrains',
@@ -75,7 +85,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <html
       lang={htmlLang[locale]}
-      className={`${bricolage.variable} ${instrument.variable} ${jetbrains.variable}`}
+      className={`${bricolage.variable} ${instrument.variable} ${instrumentSerif.variable} ${jetbrains.variable}`}
     >
       <body>
         <a

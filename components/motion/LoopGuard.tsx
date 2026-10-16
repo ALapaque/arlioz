@@ -3,10 +3,10 @@
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
-const LOOPS = '.stage, .marquee, .hero-visual';
+const LOOPS = '.stage, .marquee';
 
 /**
- * Infinite animations (device screenshots, marquee, floating logo) only run
+ * Infinite animations (device screenshots, marquee) only run
  * while their block is on screen. Off-screen loops would otherwise cost a
  * composite per frame for nothing, which shows during scrolling.
  */

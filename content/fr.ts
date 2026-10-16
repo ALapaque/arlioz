@@ -244,16 +244,20 @@ export const fr: SiteContent = {
   },
   hero: {
     badge: 'Développement & RGPD · Belgique',
-    title: ['Du code solide.', 'Des données protégées.'],
+    title: [
+      { lead: 'Du ', em: 'code solide.' },
+      { lead: 'Des ', em: 'données protégées.' },
+    ],
     text: 'Arlioz réunit deux mondes : le développement digital et la protection des données. Sites, applications web et mobiles, conformité RGPD : une seule équipe pour faire grandir votre entreprise, sereinement et intelligemment.',
     ctaPrimary: 'Parlons de votre projet',
     ctaSecondary: 'Voir nos réalisations',
-    logoAlt: 'Logo Arlioz : trois rubans entrelacés, orange, bleu et vert',
     chips: [
       { label: 'Privacy by design', dot: 'blue' },
       { label: 'Web & mobile', dot: 'orange' },
       { label: 'Depuis 2018', dot: 'green' },
     ],
+    hint: 'Bougez la souris · cliquez pour libérer un courant',
+    scroll: 'Découvrir',
     clientsLabel: 'En production chez',
     clients: ['Radyo', 'Restomax', 'JK Studio'],
   },

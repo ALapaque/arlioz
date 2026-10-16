@@ -86,8 +86,12 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
               letterSpacing: -4,
             }}
           >
-            <span>{content.hero.title[0]}</span>
-            <span>{content.hero.title[1]}</span>
+            {content.hero.title.map((line, i) => (
+              <span key={line.em} style={{ display: 'flex' }}>
+                <span>{line.lead}</span>
+                <span style={{ color: i === 0 ? '#FF7C00' : '#00FFCC' }}>{line.em}</span>
+              </span>
+            ))}
           </div>
           <div
             style={{

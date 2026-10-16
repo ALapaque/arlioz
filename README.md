@@ -9,7 +9,12 @@ Rebuild complet (v3) à partir de la maquette Claude Design « Arlioz — Site v
 - **Tailwind CSS v4** (tokens dans `app/globals.css` via `@theme`, pas de `tailwind.config`)
 - **Animations** : CSS scroll-driven (`animation-timeline: view()`) pour tous les reveals, **Lenis** pour le smooth scroll,
   **GSAP ScrollTrigger** chargé à la demande uniquement comme fallback pour les navigateurs sans `animation-timeline`.
-- **Médias** : `next/image` (AVIF/WebP), polices variables auto-hébergées via `next/font/local` (latin uniquement).
+- **Hero** : « courant chromatique » WebGL maison (`components/motion/ChromaCurrent.tsx`, aucune dépendance, ~4 kB) :
+  des courants de lumière orange → turquoise sur une grille de points, agités par la souris, un clic libère une tache.
+  Ne tourne que sur GPU (rien en rendu logiciel, une image fixe en `prefers-reduced-motion`), en pause hors écran,
+  onglet caché et pendant le scroll sur les navigateurs sans scroll-driven animations.
+- **Médias** : `next/image` (AVIF/WebP), polices auto-hébergées via `next/font/local` (latin uniquement) : trois
+  variables + Instrument Serif italique pour les deux mots mis en avant du titre.
 - **Qualité** : ESLint (config Next + Prettier), Prettier, `@next/bundle-analyzer`, Vercel Analytics & Speed Insights.
 
 ## Commandes
@@ -35,7 +40,7 @@ app/
 components/
   sections/              Hero, About, Expertises, Work, StackMarquee, Team, Contact, LegalPage (Server Components)
   layout/                Header, HeaderControls (menu, langue — client), Footer
-  motion/                SmoothScroll (Lenis), ScrollRevealFallback, LoopGuard, ScrollState, Magnetic
+  motion/                SmoothScroll (Lenis), ChromaCurrent (WebGL), ScrollRevealFallback, LoopGuard, ScrollState, Magnetic
   ui/                    Button, Eyebrow, LineTitle, Chips, DeviceStage, BrowserBar, Glow, Icons, JsonLd, LogoMark
 content/                 textes FR/EN (fr.ts, en.ts), projets, pages légales, médias — aucun texte en dur dans les composants
 lib/                     i18n.ts (locales, segments d'URL), seo.ts (metadata + JSON-LD), gsap.ts, site.ts

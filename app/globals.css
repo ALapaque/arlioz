@@ -7,6 +7,7 @@
   --font-display: var(--font-bricolage), 'Helvetica Neue', Arial, sans-serif;
   --font-sans: var(--font-instrument), 'Helvetica Neue', Arial, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: var(--font-instrument-serif), Georgia, 'Times New Roman', serif;
 
   --color-ink: #0a0a0c;
   --color-ink-2: #0d0d10;
@@ -359,30 +360,92 @@
   }
 
   /* Hero ----------------------------------------------------------- */
-  .hero-grid {
+  /* Pulled up under the sticky header (84px: 52px pill + 2 × 16px) so the
+     current fills the whole first screen. */
+  .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
-    gap: 56px;
-    align-items: center;
+    place-items: center;
+    min-height: 100svh;
+    margin-top: -84px;
+    padding: 132px 0 112px;
   }
-  .hero-visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 540px;
+  /* The current only flows along the edges: the centre is masked out so the
+     text sits on plain ink. The veil darkens the middle a little more. Without a
+     GPU (software WebGL, Lighthouse) the canvas stays empty: plain ink. */
+  .hero-chroma {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    mask-image: radial-gradient(ellipse 46% 44% at 50% 50%, transparent 38%, #000 100%);
+    -webkit-mask-image: radial-gradient(ellipse 46% 44% at 50% 50%, transparent 38%, #000 100%);
   }
-  .hero-logo {
-    position: relative;
-    height: 440px;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    will-change: transform;
-    backface-visibility: hidden;
+  .hero-veil {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        ellipse 50% 46% at 50% 50%,
+        rgb(10 10 12 / 0.92),
+        rgb(10 10 12 / 0.5) 60%,
+        transparent 78%
+      ),
+      linear-gradient(rgb(10 10 12 / 0.6), transparent 22%, transparent 78%, rgb(10 10 12 / 0.7));
   }
-  .intro-visual {
-    will-change: transform;
+  .hero-title {
+    text-shadow: 0 2px 24px rgb(10 10 12 / 0.8);
+  }
+  /* The two promises: italic serif, each with the gradient of "its" current. */
+  .hero-hl {
+    font: italic 400 1.08em/1 var(--font-serif);
+    letter-spacing: -0.02em;
+    padding-right: 0.06em;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+  }
+  .hero-hl-a {
+    background-image: linear-gradient(95deg, #ffb13d 0%, #ff7c00 55%, #ff5a1f 100%);
+  }
+  .hero-hl-b {
+    background-image: linear-gradient(95deg, #7df5e0 0%, #00ffcc 50%, #38b6ff 100%);
+  }
+  .hero-lead {
+    text-shadow: 0 1px 12px rgb(10 10 12 / 0.9);
+  }
+  /* Pointer hint: only once the interactive current actually runs. */
+  .hero-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 70px;
+    display: none;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: calc(100vw - 32px);
+  }
+  .hero[data-live] .hero-hint {
+    display: block;
+  }
+  .hero-scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+  }
+  .hero-scroll i {
+    display: block;
+    width: 1px;
+    height: 38px;
+    background: linear-gradient(var(--color-paper-3), transparent);
+    animation: arz-drop 1.8s var(--ease-out-expo) infinite;
+  }
+  @media (hover: none) {
+    .hero[data-live] .hero-hint {
+      display: none;
+    }
   }
   .hero-chip {
     display: inline-flex;
@@ -403,10 +466,6 @@
       background: rgb(17 17 20 / 0.92);
     }
   }
-  .float {
-    animation: arz-float 7s ease-in-out infinite;
-  }
-
   /* Layout grids --------------------------------------------------- */
   .split {
     display: grid;
@@ -725,10 +784,6 @@
   .ln-2 {
     animation-delay: 0.24s;
   }
-  /* LCP-safe: the hero visual scales in but never starts at opacity 0. */
-  .intro-visual {
-    animation: arz-zoom-lcp 1.3s var(--ease-out-expo) 0.25s both;
-  }
   .intro-media {
     animation: arz-zoom-lcp 1.1s var(--ease-out-expo) 0.2s both;
   }
@@ -736,13 +791,13 @@
     animation: arz-pop 0.7s var(--ease-out-expo) both;
   }
   .chip-1 {
-    animation-delay: 0.9s;
+    animation-delay: 0.7s;
   }
   .chip-2 {
-    animation-delay: 1.05s;
+    animation-delay: 0.82s;
   }
   .chip-3 {
-    animation-delay: 1.2s;
+    animation-delay: 0.94s;
   }
 
   /* Marks, bars, line masks ---------------------------------------- */
@@ -831,13 +886,21 @@
     opacity: 0;
   }
 }
-@keyframes arz-float {
-  0%,
-  100% {
-    transform: translateY(0);
+@keyframes arz-drop {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
   }
   50% {
-    transform: translateY(-12px);
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
   }
 }
 @keyframes arz-marquee {
@@ -1386,19 +1449,6 @@
   }
 }
 @media (max-width: 1080px) {
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
-  }
-  .hero-visual {
-    min-height: 440px;
-    width: 100%;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  .hero-logo {
-    height: 340px;
-  }
   .proj-row,
   .proj-row-rev {
     grid-template-columns: minmax(0, 1fr);
@@ -1503,19 +1553,10 @@
     padding: 10px 0;
     background-position: 0 calc(100% - 9px);
   }
-  .hero-visual {
-    min-height: 0;
-    flex-wrap: wrap;
-    align-content: center;
-    gap: 10px 8px;
-    padding: 4px 0;
-  }
-  .hero-logo {
-    height: 230px;
-    flex: 0 0 100%;
+  .hero {
+    padding: 120px 0 96px;
   }
   .hero-chip {
-    position: static !important;
     padding: 8px 12px !important;
     font-size: 11px !important;
   }
@@ -1631,12 +1672,10 @@
 html.no-sda.is-scrolling .jk-scroll,
 html.no-sda.is-scrolling .rx-a,
 html.no-sda.is-scrolling .rx-b,
-html.no-sda.is-scrolling .float,
 html.no-sda.is-scrolling .marquee-track,
 .loop-paused .jk-scroll,
 .loop-paused .rx-a,
 .loop-paused .rx-b,
-.loop-paused .float,
 .loop-paused .marquee-track {
   animation-play-state: paused;
 }
@@ -1696,7 +1735,6 @@ html.sda-light :is(.rv-d2, .rv-bar.b3) {
     animation: none;
   }
   .intro,
-  .intro-visual,
   .intro-media,
   .chip-pop,
   .ln-in,
@@ -1705,7 +1743,7 @@ html.sda-light :is(.rv-d2, .rv-bar.b3) {
     animation: none;
   }
   .marquee-track,
-  .float,
+  .hero-scroll i,
   .jk-scroll,
   .rx-a,
   .rx-b {

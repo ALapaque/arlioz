@@ -220,16 +220,20 @@ export const en: SiteContent = {
   },
   hero: {
     badge: 'Development & GDPR · Belgium',
-    title: ['Solid code.', 'Protected data.'],
+    title: [
+      { lead: 'Solid ', em: 'code.' },
+      { lead: 'Protected ', em: 'data.' },
+    ],
     text: 'Arlioz brings two worlds together: digital development and data protection. Websites, web and mobile applications, GDPR compliance: one team to grow your business, calmly and intelligently.',
     ctaPrimary: 'Let’s talk about your project',
     ctaSecondary: 'See our work',
-    logoAlt: 'Arlioz logo: three interlaced ribbons, orange, blue and green',
     chips: [
       { label: 'Privacy by design', dot: 'blue' },
       { label: 'Web & mobile', dot: 'orange' },
       { label: 'Since 2018', dot: 'green' },
     ],
+    hint: 'Move the mouse · click to release a current',
+    scroll: 'Discover',
     clientsLabel: 'In production at',
     clients: ['Radyo', 'Restomax', 'JK Studio'],
   },

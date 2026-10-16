@@ -119,12 +119,16 @@ export interface SiteContent {
   };
   hero: {
     badge: string;
-    title: [string, string];
+    /** One entry per line: `lead` in the display face, `em` highlighted in italic serif. */
+    title: { lead: string; em: string }[];
     text: string;
     ctaPrimary: string;
     ctaSecondary: string;
-    logoAlt: string;
     chips: { label: string; dot: Accent }[];
+    /** Pointer hint for the interactive background (fine pointers only). */
+    hint: string;
+    /** Scroll indicator label. */
+    scroll: string;
     clientsLabel: string;
     clients: string[];
   };
