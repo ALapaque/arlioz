@@ -35,10 +35,10 @@ app/
 components/
   sections/              Hero, About, Expertises, Work, StackMarquee, Team, Contact, LegalPage (Server Components)
   layout/                Header, HeaderControls (menu, langue — client), Footer
-  motion/                SmoothScroll (Lenis), ScrollRevealFallback (+ reveal-fallback GSAP), Magnetic, ContactForm
+  motion/                SmoothScroll (Lenis), ScrollRevealFallback, LoopGuard, ScrollState, Magnetic
   ui/                    Button, Eyebrow, LineTitle, Chips, DeviceStage, BrowserBar, Glow, Icons, JsonLd, LogoMark
 content/                 textes FR/EN (fr.ts, en.ts), projets, pages légales, médias — aucun texte en dur dans les composants
-lib/                     i18n.ts (locales, segments d'URL), seo.ts (metadata + JSON-LD), gsap.ts, actions/contact.ts, site.ts
+lib/                     i18n.ts (locales, segments d'URL), seo.ts (metadata + JSON-LD), gsap.ts, site.ts
 proxy.ts                 redirection / → /fr|/en (Accept-Language) et alias d'URL anglais (/en/work → realisations)
 public/images            logo, captures des projets (WebP ≤ 70 kB)
 ```
@@ -49,16 +49,14 @@ Deux langues par segment d'URL : `/fr/...` (défaut, `x-default`) et `/en/...`, 
 chaque page et dans le sitemap. Les segments publics anglais (`/en/work/...`, `/en/legal-notice`,
 `/en/privacy-policy`) sont réécrits par `proxy.ts` vers les routes du système de fichiers (segments français).
 
-## Formulaire de contact
+## Contact
 
-Server Action (`lib/actions/contact.ts`) avec honeypot et validation. L'envoi passe par l'API REST de Resend si
-`RESEND_API_KEY` et `CONTACT_TO_EMAIL` sont définis (voir `.env.example`) ; sinon le formulaire affiche un message
-invitant à écrire directement à contact@arlioz.be.
+Pas de formulaire ni de backend : la section Contact invite à écrire à contact@arlioz.be (lien `mailto:` avec sujet
+pré-rempli) ou à contacter Arlioz sur LinkedIn.
 
 ## Déploiement (Vercel)
 
 Préset Next.js, aucune configuration spécifique. Les en-têtes de sécurité (CSP, HSTS, etc.) et le cache immuable
-des images sont définis dans `next.config.ts`. Variables d'environnement à renseigner dans le projet Vercel :
-celles de `.env.example`.
+des images sont définis dans `next.config.ts`. Aucune variable d'environnement n'est requise.
 
 Les métriques de performance et la méthode d'audit sont documentées dans [`PERF.md`](./PERF.md).

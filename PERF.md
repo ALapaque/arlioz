@@ -20,15 +20,15 @@ de rendu. Mesure directe avec CPU ×4 sans bridage réseau (Playwright, médiane
 
 ## Budget JavaScript (page d'accueil, gzip)
 
-| Fichier (chunk)                      | gzip        | Contenu                                         |
-| ------------------------------------ | ----------- | ----------------------------------------------- |
-| `react-dom` + `react`                | 71,9 kB     | exclu du budget                                 |
-| runtime App Router Next.js           | 46,5 kB     | routeur, hydratation, `next/image`, `next/link` |
-| polyfills (`noModule`)               | 39,5 kB     | jamais exécuté par un navigateur moderne        |
-| app + Lenis + Vercel analytics       | 11,6 kB     | layout client (menu, langue, smooth scroll)     |
-| app (formulaire, Magnetic, sections) | ~16 kB      | 4 petits chunks                                 |
-| runtime Turbopack + webpack glue     | ~6 kB       |                                                 |
-| **Total exécuté hors React**         | **≈ 80 kB** | cible < 90 kB ✔                                 |
+| Fichier (chunk)                  | gzip        | Contenu                                         |
+| -------------------------------- | ----------- | ----------------------------------------------- |
+| `react-dom` + `react`            | 71,9 kB     | exclu du budget                                 |
+| runtime App Router Next.js       | 46,5 kB     | routeur, hydratation, `next/image`, `next/link` |
+| polyfills (`noModule`)           | 39,5 kB     | jamais exécuté par un navigateur moderne        |
+| app + Lenis + Vercel analytics   | 11,6 kB     | layout client (menu, langue, smooth scroll)     |
+| app (Magnetic, sections)         | ~14 kB      | petits chunks                                   |
+| runtime Turbopack + webpack glue | ~6 kB       |                                                 |
+| **Total exécuté hors React**     | **≈ 80 kB** | cible < 90 kB ✔                                 |
 
 GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il est importé dynamiquement seulement si
 `CSS.supports('animation-timeline: view()')` est faux. CSS : 13 kB gzip (un seul fichier). HTML : 29 kB gzip.
@@ -44,7 +44,7 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
 ## Décisions prises pour tenir le budget
 
 1. **Motion retiré** : `motion/react` (même en `LazyMotion`) pesait 53 kB gzip pour trois micro-interactions. Menu
-   overlay, swap du formulaire et effet magnétique sont faits en CSS (`@keyframes`, `onAnimationEnd`) et en 30 lignes
+   overlay et effet magnétique sont faits en CSS (`@keyframes`, `onAnimationEnd`) et en 30 lignes
    de `requestAnimationFrame`. Réintroduire Motion coûterait ~55 % du budget JS.
 2. **Glows sans `filter: blur()`** : les halos de la maquette sont rendus par un `radial-gradient` mis à l'échelle
    (`components/ui/Glow.tsx`). Un `blur(110px)` sur des disques de 300 px forçait une rastérisation coûteuse avant
@@ -64,8 +64,8 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
 ## Vérifications complémentaires
 
 - `prefers-reduced-motion: reduce` : Lenis désactivé, aucune animation d'entrée ni de scroll, marquee/float arrêtés.
-- Sans JavaScript : tout le contenu est dans le HTML initial (texte, images, liens), le formulaire fonctionne via la
-  Server Action (progressive enhancement). Seule la page 404 est complétée côté client (statut 404 correct).
+- Sans JavaScript : tout le contenu est dans le HTML initial (texte, images, liens), le contact passe par des liens
+  `mailto:` et LinkedIn. Seule la page 404 est complétée côté client (statut 404 correct).
 - Clavier : lien « Aller au contenu », `:focus-visible` visible, menu fermable par Échap avec retour du focus.
 - Sémantique : un seul `<h1>`, `<main>`, `<nav aria-label>`, `<section aria-labelledby>`, `alt` sur toutes les images.
 - SEO : canonical + `hreflang` (fr-BE, en, x-default) sur chaque page et dans `sitemap.xml`, `robots.txt`, manifest,

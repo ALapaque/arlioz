@@ -176,25 +176,15 @@ export interface SiteContent {
     emailLabel: string;
     linkedinLabel: string;
     linkedinValue: string;
-    form: {
-      needLegend: string;
-      needs: { value: 'dev' | 'rgpd' | 'both'; label: string }[];
-      name: string;
-      company: string;
-      optional: string;
+    direct: {
+      title: string;
+      text: string;
       email: string;
-      message: string;
-      placeholder: string;
+      linkedin: string;
+      /** Pre-filled subject of the mailto link. */
+      subject: string;
       privacy: string;
       privacyLink: string;
-      submit: string;
-      sending: string;
-      successTitle: string;
-      successText: string;
-      again: string;
-      errorGeneric: string;
-      errorNotConfigured: string;
-      errorInvalid: string;
     };
   };
   footer: {

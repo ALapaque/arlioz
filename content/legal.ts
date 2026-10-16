@@ -140,14 +140,12 @@ const privacyFr: LegalPage = {
     {
       title: 'Données collectées',
       paragraphs: [
-        'Nous collectons uniquement les données que vous nous transmettez via le formulaire de contact :',
+        'Ce site ne comporte aucun formulaire : nous ne traitons que les données que vous nous transmettez vous-même, par e-mail à contact@arlioz.be ou par message sur LinkedIn :',
       ],
       list: [
-        'nom',
-        'société (facultatif)',
-        'adresse e-mail professionnelle',
-        'type de besoin (développement, conseil RGPD, les deux)',
-        'contenu de votre message',
+        'vos nom et prénom, et le cas échéant votre société et votre fonction',
+        'votre adresse e-mail ou votre profil LinkedIn',
+        'le contenu de votre message et des échanges qui suivent',
       ],
     },
     {
@@ -160,13 +158,13 @@ const privacyFr: LegalPage = {
     {
       title: 'Destinataires et sous-traitants',
       paragraphs: [
-        'Vos données sont accessibles aux membres d’Arlioz en charge de votre demande. Elles transitent par nos sous-traitants techniques : Vercel Inc. (hébergement du site) et Resend Inc. (acheminement des e-mails du formulaire). Ces prestataires sont tenus par des accords de traitement conformes à l’article 28 du RGPD ; les transferts hors Union européenne sont encadrés par les clauses contractuelles types de la Commission européenne.',
+        'Vos données sont accessibles aux membres d’Arlioz en charge de votre demande. Le site lui-même ne collecte rien ; il est hébergé par Vercel Inc. Les e-mails sont traités par notre fournisseur de messagerie, et les messages LinkedIn par LinkedIn Ireland Unlimited Company selon sa propre politique de confidentialité. Ces prestataires sont tenus par des accords de traitement conformes à l’article 28 du RGPD ; les transferts hors Union européenne sont encadrés par les clauses contractuelles types de la Commission européenne.',
       ],
     },
     {
       title: 'Durée de conservation',
       paragraphs: [
-        'Les messages reçus via le formulaire sont conservés 12 mois après le dernier échange, puis supprimés, sauf si une relation contractuelle est engagée.',
+        'Les messages reçus par e-mail ou LinkedIn sont conservés 12 mois après le dernier échange, puis supprimés, sauf si une relation contractuelle est engagée.',
       ],
     },
     {
@@ -178,7 +176,7 @@ const privacyFr: LegalPage = {
     {
       title: 'Sécurité',
       paragraphs: [
-        'Le site est servi exclusivement en HTTPS, avec des en-têtes de sécurité (politique de sécurité du contenu, HSTS, protection contre le détournement de clic). Les messages du formulaire sont transmis chiffrés et accessibles uniquement aux personnes d’Arlioz en charge de votre demande.',
+        'Le site est servi exclusivement en HTTPS, avec des en-têtes de sécurité (politique de sécurité du contenu, HSTS, protection contre le détournement de clic). Les e-mails que vous nous adressez ne sont accessibles qu’aux personnes d’Arlioz en charge de votre demande.',
       ],
     },
     {
@@ -219,13 +217,13 @@ const privacyEn: LegalPage = {
     },
     {
       title: 'Data collected',
-      paragraphs: ['We only collect the data you send us through the contact form:'],
+      paragraphs: [
+        'This site has no form: we only process the data you send us yourself, by e-mail to contact@arlioz.be or by message on LinkedIn:',
+      ],
       list: [
-        'name',
-        'company (optional)',
-        'work e-mail address',
-        'type of need (development, GDPR consulting, both)',
-        'the content of your message',
+        'your first and last name, and where relevant your company and role',
+        'your e-mail address or LinkedIn profile',
+        'the content of your message and of the exchanges that follow',
       ],
     },
     {
@@ -238,13 +236,13 @@ const privacyEn: LegalPage = {
     {
       title: 'Recipients and processors',
       paragraphs: [
-        'Your data is accessible to the Arlioz members handling your request. It passes through our technical processors: Vercel Inc. (website hosting) and Resend Inc. (delivery of form e-mails). These providers are bound by data processing agreements compliant with Article 28 GDPR; transfers outside the European Union are governed by the European Commission’s standard contractual clauses.',
+        'Your data is accessible to the Arlioz members handling your request. The site itself collects nothing; it is hosted by Vercel Inc. E-mails are handled by our mail provider, and LinkedIn messages by LinkedIn Ireland Unlimited Company under its own privacy policy. These providers are bound by data processing agreements compliant with Article 28 GDPR; transfers outside the European Union are governed by the European Commission’s standard contractual clauses.',
       ],
     },
     {
       title: 'Retention',
       paragraphs: [
-        'Messages received through the form are kept for 12 months after the last exchange, then deleted, unless a contractual relationship is entered into.',
+        'Messages received by e-mail or LinkedIn are kept for 12 months after the last exchange, then deleted, unless a contractual relationship is entered into.',
       ],
     },
     {
@@ -256,7 +254,7 @@ const privacyEn: LegalPage = {
     {
       title: 'Security',
       paragraphs: [
-        'The site is served over HTTPS only, with security headers (content security policy, HSTS, clickjacking protection). Form messages are transmitted encrypted and accessible only to the Arlioz people handling your request.',
+        'The site is served over HTTPS only, with security headers (content security policy, HSTS, clickjacking protection). E-mails you send us are accessible only to the Arlioz people handling your request.',
       ],
     },
     {
@@ -312,7 +310,7 @@ const cookiesFr: LegalPage = {
         'aucun cookie de suivi ni cookie publicitaire ;',
         'aucun réseau social ni service tiers embarqué (pas de vidéo, de carte ou de police chargée depuis un domaine externe) ;',
         'mesure d’audience par Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie ni identifiant persistant et ne produisent que des statistiques agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance) ;',
-        'le formulaire de contact ne dépose rien dans votre navigateur ; les données saisies sont traitées comme décrit dans la politique de confidentialité.',
+        'aucun formulaire : le contact se fait par e-mail ou LinkedIn, aucune donnée n’est saisie sur le site.',
       ],
     },
     {
@@ -361,7 +359,7 @@ const cookiesEn: LegalPage = {
         'no tracking or advertising cookies;',
         'no embedded social network or third-party service (no video, map or font loaded from an external domain);',
         'audience measurement by Vercel Web Analytics and Vercel Speed Insights, which work without cookies or persistent identifiers and only produce aggregated, anonymous statistics (page views, country, device type, performance metrics);',
-        'the contact form stores nothing in your browser; the data you enter is processed as described in the privacy policy.',
+        'no form: contact happens by e-mail or LinkedIn, no data is entered on the site.',
       ],
     },
     {

@@ -1,10 +1,13 @@
 import { type SiteContent } from '@/content/types';
 import { type Locale, localePath } from '@/lib/i18n';
 import { site } from '@/lib/site';
-import { ContactForm } from '@/components/motion/ContactForm';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Glow } from '@/components/ui/Glow';
-import { ArrowUpRight } from '@/components/ui/Icons';
+import Link from 'next/link';
+import { Magnetic } from '@/components/motion/Magnetic';
+import { ButtonLink } from '@/components/ui/Button';
+import { ArrowUpRight, Shield } from '@/components/ui/Icons';
+import { LogoMark } from '@/components/ui/LogoMark';
 
 export function Contact({ locale, content }: { locale: Locale; content: SiteContent }) {
   const { contact } = content;
@@ -62,12 +65,34 @@ export function Contact({ locale, content }: { locale: Locale; content: SiteCont
               </div>
             </div>
 
-            <div className="relative min-w-0">
-              <ContactForm
-                locale={locale}
-                strings={contact.form}
-                privacyHref={localePath(locale, 'privacy')}
-              />
+            <div className="relative flex min-w-0 flex-col justify-center gap-[22px] rounded-card border border-line-2 bg-ink p-[clamp(28px,3.4vw,44px)]">
+              <LogoMark height={44} className="self-start" />
+              <h3 className="m-0 font-display text-[clamp(26px,2.4vw,32px)] leading-[1.05] font-medium tracking-[-0.03em] text-balance">
+                {contact.direct.title}
+              </h3>
+              <p className="m-0 text-base leading-[1.6] text-muted">{contact.direct.text}</p>
+              <div className="flex flex-wrap gap-3 pt-1.5">
+                <Magnetic>
+                  <ButtonLink
+                    href={`mailto:${site.email}?subject=${encodeURIComponent(contact.direct.subject)}`}
+                  >
+                    {contact.direct.email}
+                  </ButtonLink>
+                </Magnetic>
+                <ButtonLink href={site.linkedin} variant="ghost" target="_blank" rel="noopener">
+                  {contact.direct.linkedin}
+                  <ArrowUpRight size={16} />
+                </ButtonLink>
+              </div>
+              <p className="m-0 flex items-start gap-[10px] text-[13.5px] leading-[1.55] text-muted-3">
+                <Shield size={18} strokeWidth={1.7} className="mt-px flex-none text-blue-light" />
+                <span>
+                  {contact.direct.privacy}{' '}
+                  <Link href={localePath(locale, 'privacy')} className="link-u text-paper-3">
+                    {contact.direct.privacyLink}
+                  </Link>
+                </span>
+              </p>
             </div>
           </div>
         </div>
