@@ -17,23 +17,20 @@ import { htmlLang, isLocale, locales } from '@/lib/i18n';
 import { site } from '@/lib/site';
 import { getCurrentYear } from '@/lib/year';
 
+/* Fonts: subsets built by scripts/fonts/subset.py (see PERF.md): Bricolage as two static
+   instances (500/600), Instrument Sans variable 400–600, Instrument Serif italic for the two
+   highlighted words of the hero, JetBrains Mono at 500 (not preloaded). All `swap` with
+   metric-matched fallbacks (CLS 0). */
 const bricolage = localFont({
-  src: '../fonts/bricolage-grotesque-latin.woff2',
+  src: [
+    { path: '../fonts/bricolage-grotesque-500.woff2', weight: '500' },
+    { path: '../fonts/bricolage-grotesque-600.woff2', weight: '600' },
+  ],
   variable: '--font-bricolage',
-  weight: '300 700',
   display: 'swap',
   adjustFontFallback: 'Arial',
 });
 
-const instrument = localFont({
-  src: '../fonts/instrument-sans-latin.woff2',
-  variable: '--font-instrument',
-  weight: '400 700',
-  display: 'swap',
-  adjustFontFallback: 'Arial',
-});
-
-/** Italic serif used only for the two highlighted promises of the hero title. */
 const instrumentSerif = localFont({
   src: '../fonts/instrument-serif-italic-latin.woff2',
   variable: '--font-instrument-serif',
@@ -43,8 +40,16 @@ const instrumentSerif = localFont({
   adjustFontFallback: 'Times New Roman',
 });
 
+const instrument = localFont({
+  src: '../fonts/instrument-sans-latin.woff2',
+  variable: '--font-instrument',
+  weight: '400 600',
+  display: 'swap',
+  adjustFontFallback: 'Arial',
+});
+
 const jetbrains = localFont({
-  src: '../fonts/jetbrains-mono-latin.woff2',
+  src: '../fonts/jetbrains-mono-500.woff2',
   variable: '--font-jetbrains',
   weight: '400 500',
   display: 'swap',
