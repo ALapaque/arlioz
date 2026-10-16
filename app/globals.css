@@ -1653,8 +1653,8 @@
 }
 
 /* Infinite animations only run while their block is on screen (LoopGuard),
-   never while the page scrolls in browsers without scroll-driven animations
-   (software compositing territory), and can be paused with ?loops=off. */
+   and never while the page scrolls in browsers without scroll-driven
+   animations (software compositing territory). */
 html.no-sda.is-scrolling .jk-scroll,
 html.no-sda.is-scrolling .rx-a,
 html.no-sda.is-scrolling .rx-b,
@@ -1664,22 +1664,17 @@ html.no-sda.is-scrolling .marquee-track,
 .loop-paused .rx-a,
 .loop-paused .rx-b,
 .loop-paused .float,
-.loop-paused .marquee-track,
-html.no-loops .jk-scroll,
-html.no-loops .rx-a,
-html.no-loops .rx-b,
-html.no-loops .float,
-html.no-loops .marquee-track {
+.loop-paused .marquee-track {
   animation-play-state: paused;
 }
 
 /* ------------------------------------------------------------------ */
 /* Browsers without scroll-driven animations (Firefox stable, 2026) get  */
-/* `html.no-sda` from ScrollRevealFallback: content is simply visible,   */
-/* no reveal transitions. Measured in headless Firefox (software          */
-/* compositing): any transitioning block forces a recomposite per scroll  */
-/* frame; even headline-only transitions doubled the share of frames     */
-/* above 33 ms. The class also pauses the infinite loops while scrolling. */
+/* `html.no-sda` from ScrollRevealFallback: the loops pause while         */
+/* scrolling and only the light reveal set below animates. Measured in    */
+/* headless Firefox (software compositing): transitioning large blocks    */
+/* forces a recomposite per scroll frame, so cards with images, device    */
+/* stages and the giant footer word stay static.                          */
 /* ------------------------------------------------------------------ */
 
 /* Light reveals for `html.no-sda.sda-light` (small surfaces only, see

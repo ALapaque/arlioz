@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import { debugFlag } from '@/lib/debug-flags';
 
 /**
  * Light reveal set for browsers without scroll-driven animations: only small
@@ -29,7 +28,7 @@ const TARGETS = [
  * flagged with `html.no-sda`: infinite loops pause while scrolling and one
  * IntersectionObserver adds `.is-in` to the light reveal set above, whose
  * entrances are short CSS transitions (nothing runs per scroll frame).
- * The default is static; `?reveal=light` enables the light set.
+ * Validated on real hardware by the site owner (smooth, animations kept).
  */
 export function ScrollRevealFallback() {
   const pathname = usePathname();
@@ -38,10 +37,6 @@ export function ScrollRevealFallback() {
     if (typeof CSS === 'undefined' || CSS.supports('animation-timeline: view()')) return;
     const root = document.documentElement;
     root.classList.add('no-sda');
-    // Static by default: in headless Firefox (software compositing) even this
-    // light set made ~20% of scroll frames exceed 33 ms, versus ~2% static.
-    // `?reveal=light` opts in for comparison on real hardware.
-    if (debugFlag('reveal') !== 'light') return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     root.classList.add('sda-light');
 

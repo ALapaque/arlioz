@@ -14,6 +14,7 @@ export const routeSegments = {
   work: { fr: 'realisations', en: 'work' },
   legal: { fr: 'mentions-legales', en: 'legal-notice' },
   privacy: { fr: 'politique-de-confidentialite', en: 'privacy-policy' },
+  cookies: { fr: 'gestion-des-cookies', en: 'cookie-settings' },
 } as const;
 
 export type RouteKey = keyof typeof routeSegments;

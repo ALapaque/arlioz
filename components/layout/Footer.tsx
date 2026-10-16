@@ -81,7 +81,7 @@ export function Footer({ locale, content, year }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href={`${localePath(locale, 'privacy')}#cookies`} className={linkClass}>
+                <Link href={localePath(locale, 'cookies')} className={linkClass}>
                   {f.cookies}
                 </Link>
               </li>

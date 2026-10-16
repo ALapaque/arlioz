@@ -27,5 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...projectSlugs.flatMap((slug) => entries('work', slug, 0.8)),
     ...entries('legal', undefined, 0.3),
     ...entries('privacy', undefined, 0.3),
+    ...entries('cookies', undefined, 0.3),
   ];
 }

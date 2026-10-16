@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { type LegalPage as LegalPageContent } from '@/content/legal';
 import { type SiteContent } from '@/content/types';
 import { type Locale, localePath } from '@/lib/i18n';
-import { ArrowLeft } from '@/components/ui/Icons';
+import { ArrowLeft, ArrowUpRight } from '@/components/ui/Icons';
 
 interface LegalPageProps {
   locale: Locale;
@@ -60,6 +60,23 @@ export function LegalPage({ locale, content, page }: LegalPageProps) {
                 {paragraph}
               </p>
             ))}
+            {section.links && (
+              <ul className="m-0 grid list-none gap-1.5 p-0 text-[16.5px] leading-[1.65]">
+                {section.links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener"
+                      className="link-u inline-flex items-center gap-1.5 text-paper-3"
+                    >
+                      {link.label}
+                      <ArrowUpRight size={14} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
             {section.list && (
               <ul className="m-0 grid list-disc gap-1.5 pl-5 text-[16.5px] leading-[1.65] text-muted marker:text-orange">
                 {section.list.map((item) => (
