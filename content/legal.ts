@@ -25,7 +25,7 @@ const legalFr: LegalPage = {
     {
       title: 'Éditeur du site',
       paragraphs: [
-        'Le site arlioz.be est édité par Arlioz, société établie en Belgique, inscrite à la Banque-Carrefour des Entreprises sous le numéro [BE 0XXX.XXX.XXX], dont le siège social est situé [adresse à compléter].',
+        'Le site arlioz.be est édité par Arlioz, société établie en Belgique, inscrite à la Banque-Carrefour des Entreprises sous le numéro BE 0694.716.176, dont le siège social est situé rue de la Croix 24, 6042 Lodelinsart (Charleroi), Belgique.',
         'Adresse e-mail : contact@arlioz.be. Responsable de la publication : Arlioz.',
       ],
     },
@@ -79,7 +79,7 @@ const legalEn: LegalPage = {
     {
       title: 'Publisher',
       paragraphs: [
-        'The website arlioz.be is published by Arlioz, a company established in Belgium, registered with the Crossroads Bank for Enterprises under number [BE 0XXX.XXX.XXX], with its registered office at [address to be completed].',
+        'The website arlioz.be is published by Arlioz, a company established in Belgium, registered with the Crossroads Bank for Enterprises under number BE 0694.716.176, with its registered office at Rue de la Croix 24, 6042 Lodelinsart (Charleroi), Belgium.',
         'E-mail: contact@arlioz.be. Publishing manager: Arlioz.',
       ],
     },
@@ -134,7 +134,7 @@ const privacyFr: LegalPage = {
     {
       title: 'Responsable du traitement',
       paragraphs: [
-        'Arlioz, [BE 0XXX.XXX.XXX], contact@arlioz.be, est responsable du traitement des données personnelles collectées sur ce site, au sens du Règlement général sur la protection des données (RGPD, règlement (UE) 2016/679).',
+        'Arlioz, BE 0694.716.176, rue de la Croix 24, 6042 Lodelinsart, contact@arlioz.be, est responsable du traitement des données personnelles collectées sur ce site, au sens du Règlement général sur la protection des données (RGPD, règlement (UE) 2016/679).',
       ],
     },
     {
@@ -214,7 +214,7 @@ const privacyEn: LegalPage = {
     {
       title: 'Data controller',
       paragraphs: [
-        'Arlioz, [BE 0XXX.XXX.XXX], contact@arlioz.be, is the controller of the personal data collected on this site, within the meaning of the General Data Protection Regulation (GDPR, Regulation (EU) 2016/679).',
+        'Arlioz, BE 0694.716.176, Rue de la Croix 24, 6042 Lodelinsart, contact@arlioz.be, is the controller of the personal data collected on this site, within the meaning of the General Data Protection Regulation (GDPR, Regulation (EU) 2016/679).',
       ],
     },
     {

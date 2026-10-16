@@ -88,7 +88,15 @@ export function organizationJsonLd(locale: Locale, content: SiteContent) {
     foundingDate: String(site.foundingYear),
     description: content.meta.description,
     sameAs: [site.linkedin],
-    address: { '@type': 'PostalAddress', addressCountry: site.country },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.address.street,
+      postalCode: site.address.postalCode,
+      addressLocality: site.address.city,
+      addressCountry: site.country,
+    },
+    vatID: site.vatId,
+    identifier: site.companyNumber,
     areaServed: { '@type': 'Country', name: 'Belgium' },
     knowsLanguage: ['fr', 'en'],
     contactPoint: {
