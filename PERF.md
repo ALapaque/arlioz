@@ -68,8 +68,8 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
    dessinés dans une seconde passe, soit ~80 × moins de travail qu'un shader par pixel. La boucle ne tourne que sur GPU
    (renderer `SwiftShader`/`llvmpipe`/« software » → canvas vide : Lighthouse et PageSpeed, qui n'ont pas de GPU,
    passaient de 50 ms à 143 s de TBT avec une boucle logicielle), seulement quand le canvas est visible et l'onglet
-   actif, en pause pendant le scroll sur `html.no-sda` (Firefox), et une seule image fixe en
-   `prefers-reduced-motion`. Un repli CSS « grille de points statique » a été essayé et retiré : en Firefox logiciel
+   actif, et une seule image fixe en `prefers-reduced-motion`. Elle continue pendant le scroll (le travail est sur
+   le GPU ; une pause y figeait visiblement l'effet). Un repli CSS « grille de points statique » a été essayé et retiré : en Firefox logiciel
    il coûtait autant que l'ancien logo flottant (36–40 frames > 33 ms contre 25–32 sans). Mesure Firefox headless
    après le changement : 25 à 32 frames > 33 ms sur ~210 (35 à 39 avec l'ancien hero).
 

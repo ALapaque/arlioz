@@ -11,8 +11,8 @@ Rebuild complet (v3) à partir de la maquette Claude Design « Arlioz — Site v
   **GSAP ScrollTrigger** chargé à la demande uniquement comme fallback pour les navigateurs sans `animation-timeline`.
 - **Hero** : « courant chromatique » WebGL maison (`components/motion/ChromaCurrent.tsx`, aucune dépendance, ~4 kB) :
   des courants de lumière orange → turquoise sur une grille de points, agités par la souris, un clic libère une tache.
-  Ne tourne que sur GPU (rien en rendu logiciel, une image fixe en `prefers-reduced-motion`), en pause hors écran,
-  onglet caché et pendant le scroll sur les navigateurs sans scroll-driven animations.
+  Ne tourne que sur GPU (rien en rendu logiciel, une image fixe en `prefers-reduced-motion`), en pause hors écran et
+  onglet caché.
 - **Médias** : `next/image` (AVIF/WebP), polices auto-hébergées via `next/font/local` (latin uniquement) : trois
   variables + Instrument Serif italique pour les deux mots mis en avant du titre.
 - **Qualité** : ESLint (config Next + Prettier), Prettier, `@next/bundle-analyzer`, Vercel Analytics & Speed Insights.

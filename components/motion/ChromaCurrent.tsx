@@ -71,9 +71,9 @@ function hexToRgb(hex: string): [number, number, number] {
 
 /**
  * Animated "chroma current" background (WebGL, no dependency). Starts after the
- * page is idle, renders only while on screen and the tab is visible, and pauses
- * while the page scrolls in browsers without scroll-driven animations (same policy
- * as the CSS loops). Under `prefers-reduced-motion: reduce` it draws one still
+ * page is idle and renders only while on screen and the tab is visible (the GPU
+ * does the work, so it keeps running during scroll, unlike the CSS loops).
+ * Under `prefers-reduced-motion: reduce` it draws one still
  * frame. It only runs on a GPU: without WebGL or with software rendering (where
  * every frame would block the main thread) the canvas simply stays empty. While the
  * interactive loop runs, the parent element carries a `data-live` attribute.
@@ -165,7 +165,6 @@ export function ChromaCurrent({
     const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const dpr = Math.min(coarse ? 1 : 1.5, window.devicePixelRatio || 1);
     const pitch = 9 * dpr;
-    const html = document.documentElement;
 
     let width = 0;
     let height = 0;
@@ -219,11 +218,6 @@ export function ChromaCurrent({
     const draw = (now: number) => {
       frame = 0;
       if (!visible || document.hidden) return;
-      // Same policy as the CSS loops: no compositing work while Firefox scrolls.
-      if (html.classList.contains('no-sda') && html.classList.contains('is-scrolling')) {
-        frame = requestAnimationFrame(draw);
-        return;
-      }
       const t = still ? 2 : (now - start) / 1000;
       mouseX += (targetX - mouseX) * 0.08;
       mouseY += (targetY - mouseY) * 0.08;
