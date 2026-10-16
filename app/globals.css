@@ -398,9 +398,30 @@
     width: auto;
     max-width: 100%;
     object-fit: contain;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  .intro-visual {
+    will-change: transform;
   }
   .hero-chip {
     display: inline-flex;
+    background: rgb(17 17 20 / 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  /* Firefox re-blurs backdrops on every scroll frame: use opaque-ish fills instead. */
+  @supports (-moz-appearance: none) {
+    .glass {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: rgb(20 20 24 / 0.9);
+    }
+    .hero-chip {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: rgb(17 17 20 / 0.92);
+    }
   }
   .float {
     animation: arz-float 7s ease-in-out infinite;
@@ -598,6 +619,11 @@
       transform: translateY(-22px) rotate(-2.5deg);
     }
   }
+  .jk-scroll,
+  .rx-a,
+  .rx-b {
+    will-change: transform, opacity;
+  }
   .jk-scroll {
     animation-name: jk-scroll;
     animation-timing-function: cubic-bezier(0.45, 0, 0.25, 1);
@@ -630,14 +656,32 @@
 
   /* Marquee -------------------------------------------------------- */
   .marquee {
+    position: relative;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee::before,
+  .marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 8%;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--color-ink), transparent);
+  }
+  .marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--color-ink), transparent);
   }
   .marquee-track {
     display: flex;
     width: max-content;
     animation: arz-marquee 42s linear infinite;
+    will-change: transform;
   }
   @media (hover: hover) {
     .marquee:hover .marquee-track {
@@ -827,36 +871,36 @@
 @keyframes jk-scroll {
   0%,
   12% {
-    object-position: 50% 0%;
+    translate: 0 0;
   }
   88%,
   100% {
-    object-position: 50% 100%;
+    translate: 0 calc(-1 * var(--travel, 0%));
   }
 }
 @keyframes rx-a {
   0%,
   10% {
-    object-position: 50% 0%;
+    translate: 0 0;
     opacity: 1;
   }
   34%,
   44% {
-    object-position: 50% 100%;
+    translate: 0 calc(-1 * var(--travel, 0%));
     opacity: 1;
   }
   58% {
-    object-position: 50% 0%;
+    translate: 0 0;
     opacity: 1;
   }
   63%,
   91% {
-    object-position: 50% 0%;
+    translate: 0 0;
     opacity: 0;
   }
   96%,
   100% {
-    object-position: 50% 0%;
+    translate: 0 0;
     opacity: 1;
   }
 }
@@ -1084,7 +1128,7 @@
   0% {
     opacity: 0;
     translate: 0 70px;
-    clip-path: inset(12% 9% 12% 9% round 40px);
+    scale: 0.96;
   }
   35% {
     opacity: 1;
@@ -1092,7 +1136,7 @@
   100% {
     opacity: 1;
     translate: 0 0;
-    clip-path: inset(-8px -8px -8px -8px round 32px);
+    scale: 1;
   }
 }
 @keyframes pj-desk {
@@ -1207,6 +1251,7 @@
       animation: arz-word linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 90%;
+      will-change: transform, opacity;
     }
     .sx-num {
       animation: arz-up var(--ease-out-soft) both;

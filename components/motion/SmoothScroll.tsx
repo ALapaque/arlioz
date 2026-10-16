@@ -2,6 +2,7 @@
 
 import { type LenisRef, ReactLenis } from 'lenis/react';
 import { useEffect, useRef, type ReactNode } from 'react';
+import { ScrollRestoration } from './ScrollRestoration';
 
 /**
  * Lenis smooth scrolling on the window. Lenis drives the native scroll position,
@@ -28,6 +29,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
         autoRaf: true,
       }}
     >
+      <ScrollRestoration />
       {children}
     </ReactLenis>
   );

@@ -82,14 +82,14 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
               alt={hero.logoAlt}
               priority
               fetchPriority="high"
-              placeholder="blur"
+              placeholder="empty"
               sizes="(max-width: 720px) 207px, (max-width: 1080px) 306px, 396px"
-              className="hero-logo float drop-shadow-[0_32px_64px_rgba(0,0,0,0.5)]"
+              className="hero-logo float"
             />
             {hero.chips.map((chip, i) => (
               <span
                 key={chip.label}
-                className={`hero-chip chip-pop chip-${i + 1} absolute items-center gap-[9px] rounded-pill border border-line-3 bg-[rgba(17,17,20,0.72)] px-4 py-[10px] font-mono text-xs tracking-[0.03em] text-paper-4 backdrop-blur-[12px]`}
+                className={`hero-chip chip-pop chip-${i + 1} absolute items-center gap-[9px] rounded-pill border border-line-3 px-4 py-[10px] font-mono text-xs tracking-[0.03em] text-paper-4`}
                 style={chipPositions[i]}
               >
                 <span aria-hidden="true" className={`h-2 w-2 rounded-full ${dot[chip.dot]}`} />

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { type DeviceSet } from '@/content/types';
+import { type CSSProperties } from 'react';
+import { type DeviceSet, type ProjectImage } from '@/content/types';
 import { BrowserBar } from './BrowserBar';
 import { Glow } from './Glow';
 
@@ -13,12 +14,70 @@ interface DeviceStageProps {
   ariaLabel?: string;
 }
 
-const screenshot = 'absolute inset-0 block h-full w-full object-cover object-top';
+/**
+ * Vertical distance (in % of the image's own height) the capture can travel
+ * inside a frame of the given aspect ratio. Used by the `translate`-based
+ * scrolling animations, which stay on the compositor (unlike `object-position`).
+ */
+function travel(image: ProjectImage, frameW: number, frameH: number): string {
+  const imageRatio = image.height / image.width;
+  const frameRatio = frameH / frameW;
+  const pct = Math.max(0, (1 - frameRatio / imageRatio) * 100);
+  return `${pct.toFixed(2)}%`;
+}
+
+const frames = {
+  desktop: { w: 16, h: 10, sizes: '(max-width: 1080px) 72vw, 42vw' },
+  tablet: { w: 820, h: 1180, sizes: '(max-width: 600px) 34vw, (max-width: 1080px) 23vw, 14vw' },
+  phone: { w: 390, h: 844, sizes: '(max-width: 600px) 21vw, (max-width: 1080px) 13vw, 8vw' },
+} as const;
+
+function Screen({
+  image,
+  alt,
+  frame,
+  motion,
+  className,
+}: {
+  image: ProjectImage;
+  alt?: ProjectImage;
+  frame: keyof typeof frames;
+  motion: DeviceSet['motion'];
+  className: string;
+}) {
+  const f = frames[frame];
+  const base = 'absolute top-0 left-0 block h-auto w-full';
+  const vars = (img: ProjectImage) => ({ '--travel': travel(img, f.w, f.h) }) as CSSProperties;
+  return (
+    <>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={image.width}
+        height={image.height}
+        sizes={f.sizes}
+        style={vars(image)}
+        className={`${base} ${motion === 'scroll' ? `jk-scroll ${className}` : `rx-a ${className}`}`}
+      />
+      {motion === 'swap' && alt && (
+        <Image
+          src={alt.src}
+          alt={alt.alt}
+          width={alt.width}
+          height={alt.height}
+          sizes={f.sizes}
+          style={vars(alt)}
+          className={`${base} rx-b ${className} opacity-0`}
+        />
+      )}
+    </>
+  );
+}
 
 /**
  * Composition of three device frames (desktop, tablet, phone) with screenshots.
  * `motion: 'swap'` crossfades between two screens; `motion: 'scroll'` slowly
- * scrolls a tall capture. Both are pure CSS animations.
+ * scrolls a tall capture. Both are CSS transform/opacity animations only.
  */
 export function DeviceStage({
   devices,
@@ -28,7 +87,6 @@ export function DeviceStage({
   href,
   ariaLabel,
 }: DeviceStageProps) {
-  const swap = devices.motion === 'swap';
   const scroll = devices.motion === 'scroll';
   const stageClass = `pj-stage stage relative block aspect-[16/11] overflow-clip rounded-card border border-line-2 bg-surface ${
     reversed ? 'pj-rev' : ''
@@ -62,22 +120,13 @@ export function DeviceStage({
           className="relative block aspect-[16/10] overflow-hidden"
           style={{ backgroundColor: devices.screenBg }}
         >
-          <Image
-            src={devices.desktop.src}
-            alt={devices.desktop.alt}
-            fill
-            sizes="(max-width: 1080px) 72vw, 42vw"
-            className={`${screenshot} ${swap ? 'rx-a' : ''} ${scroll ? 'jk-scroll jk-scroll-desk' : ''}`}
+          <Screen
+            image={devices.desktop}
+            alt={devices.desktopAlt}
+            frame="desktop"
+            motion={devices.motion}
+            className={scroll ? 'jk-scroll-desk' : ''}
           />
-          {swap && devices.desktopAlt && (
-            <Image
-              src={devices.desktopAlt.src}
-              alt={devices.desktopAlt.alt}
-              fill
-              sizes="(max-width: 1080px) 72vw, 42vw"
-              className={`${screenshot} rx-b opacity-0`}
-            />
-          )}
         </div>
       </div>
 
@@ -90,22 +139,13 @@ export function DeviceStage({
           className="relative block aspect-[820/1180] overflow-hidden rounded-[10px]"
           style={{ backgroundColor: devices.screenBg }}
         >
-          <Image
-            src={devices.tablet.src}
-            alt={devices.tablet.alt}
-            fill
-            sizes="(max-width: 600px) 34vw, (max-width: 1080px) 23vw, 14vw"
-            className={`${screenshot} ${swap ? 'rx-a rx-t' : ''} ${scroll ? 'jk-scroll jk-scroll-tab' : ''}`}
+          <Screen
+            image={devices.tablet}
+            alt={devices.tabletAlt}
+            frame="tablet"
+            motion={devices.motion}
+            className={scroll ? 'jk-scroll-tab' : 'rx-t'}
           />
-          {swap && devices.tabletAlt && (
-            <Image
-              src={devices.tabletAlt.src}
-              alt={devices.tabletAlt.alt}
-              fill
-              sizes="(max-width: 600px) 34vw, (max-width: 1080px) 23vw, 14vw"
-              className={`${screenshot} rx-b rx-t opacity-0`}
-            />
-          )}
         </div>
       </div>
 
@@ -118,22 +158,13 @@ export function DeviceStage({
           className="relative block aspect-[390/844] overflow-hidden rounded-2xl"
           style={{ backgroundColor: devices.screenBg }}
         >
-          <Image
-            src={devices.phone.src}
-            alt={devices.phone.alt}
-            fill
-            sizes="(max-width: 600px) 21vw, (max-width: 1080px) 13vw, 8vw"
-            className={`${screenshot} ${swap ? 'rx-a rx-m' : ''} ${scroll ? 'jk-scroll jk-scroll-mob' : ''}`}
+          <Screen
+            image={devices.phone}
+            alt={devices.phoneAlt}
+            frame="phone"
+            motion={devices.motion}
+            className={scroll ? 'jk-scroll-mob' : 'rx-m'}
           />
-          {swap && devices.phoneAlt && (
-            <Image
-              src={devices.phoneAlt.src}
-              alt={devices.phoneAlt.alt}
-              fill
-              sizes="(max-width: 600px) 21vw, (max-width: 1080px) 13vw, 8vw"
-              className={`${screenshot} rx-b rx-m opacity-0`}
-            />
-          )}
         </div>
       </div>
     </>

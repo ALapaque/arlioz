@@ -15,7 +15,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
     <section
       id="realisations"
       aria-labelledby="work-title"
-      className="section-bottom border-y border-line bg-ink-2 py-section"
+      className="border-y border-line bg-ink-2 py-section"
     >
       <div className="container-site">
         <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">

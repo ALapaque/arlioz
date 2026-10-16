@@ -50,7 +50,8 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
    (`components/ui/Glow.tsx`). Un `blur(110px)` sur des disques de 300 px forçait une rastérisation coûteuse avant
    le premier paint du hero (LCP mobile 3,6 s → 2,9 s à iso-conditions).
 3. **Reveals en CSS scroll-driven** (`animation-timeline: view()`), zéro JS, repli GSAP chargé à la demande.
-4. **`content-visibility: auto`** sur les sections sous la ligne de flottaison (Réalisations, Stack, Équipe, Contact).
+4. **`content-visibility: auto`** sur les sections basses des études de cas. Pas sur l'accueil : ses sections sont des
+   cibles d'ancres (`#contact`, `#equipe`…) et la hauteur estimée faussait la position d'arrivée avec Lenis.
 5. **Hero LCP-safe** : le visuel du hero est animé en `scale` uniquement (jamais `opacity: 0` au départ), les lignes
    du H1 sont révélées par masque (`overflow: clip` + `translate`), le texte est du vrai HTML.
 

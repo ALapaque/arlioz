@@ -12,7 +12,7 @@ export function Contact({ locale, content }: { locale: Locale; content: SiteCont
     'row-link flex items-center justify-between gap-4 border-b border-line-2 py-[22px] text-paper';
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="section-bottom pb-section">
+    <section id="contact" aria-labelledby="contact-title" className="pb-section">
       <div className="container-site">
         <div className="rv-media relative overflow-hidden rounded-[32px] border border-line-2 bg-surface p-[clamp(28px,5vw,72px)]">
           <Glow

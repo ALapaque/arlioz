@@ -9,11 +9,7 @@ const roleColor = { blue: 'text-blue-light', orange: 'text-orange-light' } as co
 export function Team({ content }: { content: SiteContent }) {
   const { team } = content;
   return (
-    <section
-      id="equipe"
-      aria-labelledby="team-title"
-      className="section-bottom pt-section-sm pb-section"
-    >
+    <section id="equipe" aria-labelledby="team-title" className="pt-section-sm pb-section">
       <div className="container-site">
         <div className="mb-[clamp(40px,5vw,64px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="rv flex min-w-0 max-w-[780px] flex-col gap-[22px]">

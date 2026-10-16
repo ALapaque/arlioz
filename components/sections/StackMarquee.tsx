@@ -25,10 +25,7 @@ function Track({ items, hidden = false }: { items: readonly string[]; hidden?: b
 export function StackMarquee({ content }: { content: SiteContent }) {
   const { stack } = content;
   return (
-    <section
-      aria-labelledby="stack-title"
-      className="section-bottom overflow-clip py-[clamp(80px,8vw,120px)]"
-    >
+    <section aria-labelledby="stack-title" className="overflow-clip py-[clamp(80px,8vw,120px)]">
       <div className="container-site mb-10 flex flex-wrap items-center justify-between gap-x-10 gap-y-4">
         <Eyebrow index={stack.index} label={stack.label} />
         <h2
