@@ -121,16 +121,8 @@ export interface SiteContent {
     badge: string;
     /** One entry per line: `lead` in the display face, `em` highlighted in italic serif. */
     title: { lead: string; em: string }[];
-    text: string;
     ctaPrimary: string;
     ctaSecondary: string;
-    chips: { label: string; dot: Accent }[];
-    /** Pointer hint for the interactive background (fine pointers only). */
-    hint: string;
-    /** Scroll indicator label. */
-    scroll: string;
-    clientsLabel: string;
-    clients: string[];
   };
   about: {
     index: string;
@@ -138,14 +130,12 @@ export interface SiteContent {
     year: string;
     yearLabel: string;
     title: RichSegment[];
-    logoLine: string;
     pillars: { title: string; text: string }[];
   };
   expertises: {
     index: string;
     label: string;
     title: [string, string];
-    intro: string;
     rgpd: { tag: string; title: string; text: string; items: string[] };
     cards: {
       tag: string;
@@ -164,14 +154,16 @@ export interface SiteContent {
     index: string;
     label: string;
     title: [string, string];
-    intro: string;
+    clientsLabel: string;
+    clients: string[];
     caseStudy: string;
     liveExample: string;
     viewSite: string;
     clientPrefix: string;
   };
-  stack: { index: string; label: string; title: string; items: string[] };
-  team: { index: string; label: string; title: string; intro: string; members: TeamMember[] };
+  /** Technologies band under the hero (`label` is its accessible name). */
+  stack: { label: string; items: string[] };
+  team: { index: string; label: string; title: string; members: TeamMember[] };
   contact: {
     index: string;
     label: string;

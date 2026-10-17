@@ -8,8 +8,7 @@ const restomax: Project = {
   type: 'Site web & widget',
   client: 'Restomax',
   clientUrl: 'https://restomax.be',
-  summary:
-    'Le système de réservation en ligne de Restomax : un widget aux couleurs de chaque restaurant, qui simplifie la gestion des réservations et limite les no-shows.',
+  summary: 'Un site et un widget de réservation en ligne, aux couleurs de chaque restaurant.',
   highlights: 'Jusqu’à 2 h libérées par jour · Anti no-show · Personnalisable',
   tags: ['React', 'Recoil', 'Nx', 'MUI', 'Emotion', 'TypeScript'],
   demoUrl: 'https://natithai.book.ezordr.app/',
@@ -31,13 +30,12 @@ const restomax: Project = {
     phoneAlt: img(media.restomax.mobile2, ''),
   },
   caseStudy: {
-    tagline:
-      'Votre nouveau système de réservation : un site et un widget de réservation en ligne, aux couleurs de chaque restaurant.',
+    tagline: 'Un site et un widget de réservation en ligne, aux couleurs de chaque restaurant.',
     intro:
-      'Restomax Book est le système de réservation en ligne de Restomax. Proposé sous forme de site et de widget, personnalisable aux couleurs de chaque établissement, il simplifie la gestion des réservations et s’adapte à tous les types de restaurants.',
+      'Le système de réservation en ligne de Restomax : un site et un widget personnalisables, qui simplifient la gestion des réservations.',
     stat: {
       value: '2 h',
-      text: 'Jusqu’à deux heures libérées chaque jour pour l’équipe du restaurant.',
+      text: 'Libérées chaque jour pour l’équipe du restaurant.',
     },
     heroImage: img(
       media.restomax.desktop1,
@@ -46,27 +44,27 @@ const restomax: Project = {
     features: [
       {
         title: 'Réservations simplifiées',
-        text: 'Toutes les réservations en ligne, gérées simplement depuis un seul outil.',
+        text: 'Toutes les réservations gérées depuis un seul outil.',
       },
       {
         title: 'Du temps gagné',
-        text: 'Jusqu’à deux heures libérées chaque jour pour votre équipe.',
+        text: 'Jusqu’à deux heures libérées par jour pour votre équipe.',
       },
       {
         title: 'À vos couleurs',
-        text: 'Une interface personnalisable aux couleurs de votre établissement.',
+        text: 'Une interface aux couleurs de votre établissement.',
       },
       {
         title: 'Moins de no-shows',
-        text: 'Une gestion intelligente des réservations pour limiter les absences.',
+        text: 'Des réservations gérées intelligemment pour limiter les absences.',
       },
       {
         title: 'Un service personnalisé',
-        text: 'Les habitudes de vos clients enregistrées et restituées à chaque visite.',
+        text: 'Les habitudes de vos clients retrouvées à chaque visite.',
       },
       {
         title: 'Pour tous les restaurants',
-        text: 'Une solution qui s’adapte à tous les types d’établissements.',
+        text: 'Une solution adaptée à tous les types d’établissements.',
       },
     ],
     stack: [
@@ -119,7 +117,7 @@ const jkstudio: Project = {
   client: 'JK Studio',
   clientUrl: 'https://www.jkstudio.fr/',
   summary:
-    'Le portfolio photo de JK Studio : des galeries par catégories, un formulaire de contact et des contenus faciles à mettre à jour.',
+    'Un portfolio photo par galeries, avec contact direct et contenus faciles à mettre à jour.',
   highlights: 'Nightlife · Mariages · Événements · Mode sombre et clair',
   tags: ['Next.js', 'Supabase'],
   demoUrl: 'https://www.jkstudio.fr/',
@@ -135,35 +133,34 @@ const jkstudio: Project = {
     phone: img(media.jkstudio.mobile, 'jkstudio.fr sur mobile'),
   },
   caseStudy: {
-    tagline:
-      'Un portfolio photo qui met les images au premier plan : galeries par catégories, contact direct et contenus mis à jour sans développeur.',
+    tagline: 'Un portfolio photo qui met les images au premier plan, mis à jour sans développeur.',
     intro:
-      'JK Studio est le portfolio d’un photographe spécialisé dans le nightlife, les mariages et les événements. Nous avons conçu un site rapide et sobre où chaque galerie se parcourt comme une planche-contact, avec un mode sombre et un mode clair, et une gestion des contenus simple pour le photographe.',
+      'Le portfolio d’un photographe nightlife, mariages et événements : un site rapide et sobre, où chaque galerie se parcourt comme une planche-contact.',
     heroImage: img(media.jkstudio.desktop, 'Page d’accueil de jkstudio.fr sur ordinateur'),
     features: [
       {
         title: 'Galeries par catégories',
-        text: 'Nightlife, mariages, événements : chaque univers a sa galerie et son rythme.',
+        text: 'Nightlife, mariages, événements : chaque univers a sa galerie.',
       },
       {
         title: 'Images au premier plan',
-        text: 'Des photos servies aux bonnes dimensions, chargées à la demande, sans perte de qualité.',
+        text: 'Des photos aux bonnes dimensions, chargées à la demande.',
       },
       {
         title: 'Sombre et clair',
-        text: 'Deux thèmes pour que les photos restent lisibles quel que soit l’éclairage.',
+        text: 'Deux thèmes pour des photos lisibles sous tout éclairage.',
       },
       {
         title: 'Formulaire de contact',
-        text: 'Une demande de devis simple, qui arrive directement dans la boîte du photographe.',
+        text: 'Une demande de devis qui arrive directement chez le photographe.',
       },
       {
         title: 'Contenus faciles à mettre à jour',
-        text: 'Ajouter une série ou changer un texte ne demande aucune intervention technique.',
+        text: 'Ajouter une série ou un texte, sans intervention technique.',
       },
       {
         title: 'Rapide et bien référencé',
-        text: 'Pages statiques, images optimisées et métadonnées soignées pour les moteurs de recherche.',
+        text: 'Pages statiques, images optimisées, métadonnées soignées.',
       },
     ],
     stack: [
@@ -237,7 +234,7 @@ export const fr: SiteContent = {
     write: 'Nous écrire',
     follow: 'Suivre',
     language: 'Langue',
-    tagline: 'Développement digital et conformité RGPD, depuis 2018. Basés en Belgique.',
+    tagline: 'Développement digital et conformité RGPD, depuis 2018.',
     cta: 'Parlons de votre projet',
     ctaShort: 'Parlons projet',
     linkedin: 'LinkedIn',
@@ -248,18 +245,8 @@ export const fr: SiteContent = {
       { lead: 'Du ', em: 'code solide.' },
       { lead: 'Des ', em: 'données protégées.' },
     ],
-    text: 'Arlioz réunit deux mondes : le développement digital et la protection des données. Sites, applications web et mobiles, conformité RGPD : une seule équipe pour faire grandir votre entreprise, sereinement et intelligemment.',
     ctaPrimary: 'Parlons de votre projet',
     ctaSecondary: 'Voir nos réalisations',
-    chips: [
-      { label: 'Privacy by design', dot: 'blue' },
-      { label: 'Web & mobile', dot: 'orange' },
-      { label: 'Depuis 2018', dot: 'green' },
-    ],
-    hint: 'Bougez la souris · cliquez pour libérer un courant',
-    scroll: 'Découvrir',
-    clientsLabel: 'En production chez',
-    clients: ['Radyo', 'Restomax', 'JK Studio'],
   },
   about: {
     index: '01',
@@ -267,27 +254,26 @@ export const fr: SiteContent = {
     year: '2018',
     yearLabel: 'Année de création',
     title: [
-      { text: 'Nous réunissons deux mondes, ' },
+      { text: 'Nous réunissons ' },
       { text: 'la protection des données', mark: 'blue' },
       { text: ' et ' },
       { text: 'le développement digital', mark: 'orange' },
-      { text: ', pour aider les entreprises à ' },
+      { text: ' pour faire ' },
       { text: 'grandir', mark: 'green' },
-      { text: ' de manière sûre et intelligente.' },
+      { text: ' votre entreprise.' },
     ],
-    logoLine: 'Trois rubans entrelacés : notre logo résume notre façon de travailler.',
     pillars: [
       {
         title: 'Développer',
-        text: 'Sites, applications web et mobiles : nous concevons et développons vos produits avec des technologies modernes et éprouvées.',
+        text: 'Sites, applications web et mobiles, avec des technologies éprouvées.',
       },
       {
         title: 'Protéger',
-        text: 'Nous rendons votre conformité RGPD claire et concrète, et nous l’intégrons dès l’architecture de vos projets.',
+        text: 'Une conformité RGPD claire, intégrée dès l’architecture.',
       },
       {
         title: 'Grandir',
-        text: 'Des solutions robustes et évolutives, pensées pour accompagner votre croissance en toute sérénité.',
+        text: 'Des solutions robustes qui accompagnent votre croissance.',
       },
     ],
   },
@@ -295,12 +281,10 @@ export const fr: SiteContent = {
     index: '02',
     label: 'Expertises',
     title: ['Deux expertises', 'qui se complètent.'],
-    intro:
-      'Une application, un audit RGPD, ou les deux : vous travaillez directement avec les experts qui réalisent le travail.',
     rgpd: {
       tag: 'Protection des données',
       title: 'Conseil RGPD',
-      text: 'Un expert à vos côtés pour mettre votre organisation en conformité, et pour le rester.',
+      text: 'Mettre votre organisation en conformité, et le rester.',
       items: [
         'Audit de conformité',
         'Registre des traitements',
@@ -314,25 +298,25 @@ export const fr: SiteContent = {
       {
         tag: 'Développement',
         title: 'Développement web',
-        text: 'Sites, plateformes et widgets sur mesure : rapides, accessibles et faciles à faire évoluer.',
+        text: 'Sites, plateformes et widgets sur mesure, rapides et accessibles.',
         icon: 'code',
       },
       {
         tag: 'Développement',
         title: 'Applications cross-platform',
-        text: 'Une base de code pour le web et le mobile : commande, réservation ou marketplace, aux couleurs de votre marque.',
+        text: 'Une base de code pour le web et le mobile, aux couleurs de votre marque.',
         icon: 'devices',
       },
       {
         tag: 'Développement',
         title: 'Architecture frontend',
-        text: 'Monorepo, design system, gestion d’état : des fondations propres pour des produits et des équipes qui grandissent.',
+        text: 'Monorepo, design system, gestion d’état : des fondations qui durent.',
         icon: 'layout',
       },
       {
         tag: 'Développement',
         title: 'Optimisation de sites web',
-        text: 'Performance, Core Web Vitals, SEO technique et accessibilité : un site plus rapide et plus visible.',
+        text: 'Performance, SEO technique, accessibilité : un site plus rapide et plus visible.',
         icon: 'gauge',
       },
     ],
@@ -341,7 +325,7 @@ export const fr: SiteContent = {
       title: 'Architecture de stack projet',
       text: [
         {
-          text: 'Choix des technologies, hébergement, flux de données et sécurité : une architecture pensée pour la conformité dès la conception. Le ',
+          text: 'Technologies, hébergement, flux de données, sécurité : une architecture conforme dès la conception. Le ',
         },
         { text: 'privacy by design', strong: true },
         { text: ', concrètement.' },
@@ -358,30 +342,26 @@ export const fr: SiteContent = {
     index: '03',
     label: 'Réalisations',
     title: ['Des projets', 'concrets, en ligne.'],
-    intro:
-      'Réservation en ligne, portfolio photo : quelques projets que nous avons conçus et développés.',
+    clientsLabel: 'En production chez',
+    clients: ['Radyo', 'Restomax', 'JK Studio'],
     caseStudy: 'Étude de cas',
     liveExample: 'Voir un exemple en ligne',
     viewSite: 'Voir le site',
     clientPrefix: 'Client :',
   },
   stack: {
-    index: '04',
-    label: 'Stack',
-    title: 'Les technologies avec lesquelles nous construisons.',
+    label: 'Technologies',
     items: ['Angular', 'React', 'Next.js', 'Vue.js', 'Nuxt', 'NestJS', 'TypeScript'],
   },
   team: {
-    index: '05',
+    index: '04',
     label: 'Équipe',
     title: 'Deux experts, en direct.',
-    intro:
-      'Vous échangez directement avec ceux qui conçoivent, développent et sécurisent votre projet.',
     members: [
       {
         name: 'Guy Moins',
         role: 'Architecte IT & expert RGPD',
-        text: 'Il cadre vos traitements de données, sécurise l’architecture de vos projets et rend la conformité RGPD concrète pour vos équipes.',
+        text: 'Il cadre vos données et rend la conformité RGPD concrète pour vos équipes.',
         tags: ['Conseil RGPD', 'Architecture IT', 'Stack projet'],
         initials: 'GM',
         photoLabel: 'Photo · Guy Moins',
@@ -390,7 +370,7 @@ export const fr: SiteContent = {
       {
         name: 'Amaury Lapaque',
         role: 'Développeur fullstack',
-        text: 'Il conçoit et développe vos sites et applications web et mobiles, de l’architecture frontend jusqu’à l’API.',
+        text: 'Il conçoit et développe vos sites et applications, du frontend à l’API.',
         tags: ['Angular', 'React · Next.js', 'Vue · Nuxt', 'NestJS', 'TypeScript'],
         photo: {
           ...media.team.amaury,
@@ -403,16 +383,16 @@ export const fr: SiteContent = {
     ],
   },
   contact: {
-    index: '06',
+    index: '05',
     label: 'Contact',
     title: 'Un projet ? Une question RGPD ? Parlons-en.',
-    text: 'Dites-nous en quelques lignes où vous en êtes. Nous revenons vers vous avec un premier avis et les prochaines étapes.',
+    text: 'Dites-nous où vous en êtes, nous revenons vers vous avec un premier avis.',
     emailLabel: 'E-mail',
     linkedinLabel: 'LinkedIn',
     linkedinValue: 'Arlioz',
     direct: {
       title: 'Un e-mail ou un message LinkedIn suffit.',
-      text: 'Décrivez votre projet ou votre question en quelques lignes, nous revenons vers vous avec un premier avis et les prochaines étapes.',
+      text: 'Décrivez votre projet en quelques lignes.',
       email: 'Écrire à contact@arlioz.be',
       linkedin: 'Nous contacter sur LinkedIn',
       subject: 'Projet / question RGPD — demande de contact',
@@ -421,7 +401,7 @@ export const fr: SiteContent = {
     },
   },
   footer: {
-    tagline: 'Vos partenaires de confiance en protection des données et développement digital.',
+    tagline: 'Protection des données et développement digital.',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Légal',
@@ -446,7 +426,7 @@ export const fr: SiteContent = {
       featuresTitle: 'Ce que la solution apporte.',
       stack: 'Stack technique',
       stackTitle: 'Une base solide et typée.',
-      stackIntro: 'Les technologies utilisées pour concevoir le site et le widget de réservation.',
+      stackIntro: 'Les technologies utilisées pour ce projet.',
       gallery: 'En images',
       galleryTitle: 'L’interface, écran par écran.',
     },
@@ -454,7 +434,7 @@ export const fr: SiteContent = {
     nextAria: 'Projet suivant :',
     cta: {
       title: 'Un projet similaire ? Parlons-en.',
-      text: 'Réservation en ligne, portfolio, plateforme sur mesure : nous concevons des outils conformes au RGPD dès la première ligne de code.',
+      text: 'Réservation, portfolio, plateforme sur mesure : des outils conformes au RGPD dès la première ligne.',
       write: 'Écrire à contact@arlioz.be',
       home: 'Retour à l’accueil',
     },

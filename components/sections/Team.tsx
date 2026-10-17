@@ -11,19 +11,14 @@ export function Team({ content }: { content: SiteContent }) {
   return (
     <section id="equipe" aria-labelledby="team-title" className="pt-section-sm pb-section">
       <div className="container-site">
-        <div className="mb-[clamp(40px,5vw,64px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
-          <div className="rv flex min-w-0 max-w-[780px] flex-col gap-[22px]">
-            <Eyebrow index={team.index} label={team.label} />
-            <h2
-              id="team-title"
-              className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.04em] text-balance"
-            >
-              {team.title}
-            </h2>
-          </div>
-          <p className="rv rv-late m-0 max-w-[420px] text-[17px] leading-[1.6] text-muted">
-            {team.intro}
-          </p>
+        <div className="rv mb-[clamp(40px,5vw,64px)] flex min-w-0 max-w-[780px] flex-col gap-[22px]">
+          <Eyebrow index={team.index} label={team.label} />
+          <h2
+            id="team-title"
+            className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.04em] text-balance"
+          >
+            {team.title}
+          </h2>
         </div>
 
         <div className="team-grid">

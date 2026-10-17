@@ -1,6 +1,5 @@
 import { type SiteContent } from '@/content/types';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { LogoMark } from '@/components/ui/LogoMark';
 
 const bars = [
   'bg-[linear-gradient(90deg,#FEB613,#FA7F13_55%,#E8392B)]',
@@ -18,7 +17,8 @@ export function About({ content }: { content: SiteContent }) {
         <div className="split">
           <div className="flex flex-col justify-between gap-10">
             <Eyebrow index={about.index} label={about.label} />
-            <div className="rv">
+            {/* Just under the fold on load: enters with the page, not on scroll. */}
+            <div className="intro intro-4">
               <p className="m-0 font-display text-stat leading-[0.85] font-normal tracking-[-0.05em] text-paper">
                 {about.year}
               </p>
@@ -29,7 +29,7 @@ export function About({ content }: { content: SiteContent }) {
           <div className="min-w-0">
             <h2
               id="about-title"
-              className="rv m-0 font-display text-h2-sm leading-[1.17] font-normal tracking-[-0.028em] text-pretty"
+              className="intro intro-4 m-0 font-display text-h2-sm leading-[1.17] font-normal tracking-[-0.028em] text-pretty"
             >
               {about.title.map((segment, i) =>
                 segment.mark ? (
@@ -41,10 +41,6 @@ export function About({ content }: { content: SiteContent }) {
                 ),
               )}
             </h2>
-            <p className="rv m-0 mt-11 flex items-center gap-3.5 text-[15px] text-muted-3">
-              <LogoMark height={26} />
-              {about.logoLine}
-            </p>
             <div className="pillars mt-14 grid grid-cols-3 gap-10">
               {about.pillars.map((pillar, i) => (
                 <div key={pillar.title} className={`rv ${delays[i] ?? ''} flex flex-col gap-4`}>

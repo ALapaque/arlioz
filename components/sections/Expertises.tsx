@@ -12,18 +12,13 @@ export function Expertises({ content }: { content: SiteContent }) {
   return (
     <section id="expertises" aria-labelledby="services-title" className="pb-section">
       <div className="container-site">
-        <div className="mb-[clamp(40px,5vw,64px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
-          <div className="flex min-w-0 max-w-[780px] flex-col gap-[22px]">
-            <Eyebrow index={x.index} label={x.label} animated />
-            <LineTitle
-              id="services-title"
-              lines={x.title}
-              className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
-            />
-          </div>
-          <p className="sx-up sx-late m-0 max-w-[420px] text-[17px] leading-[1.6] text-muted">
-            {x.intro}
-          </p>
+        <div className="mb-[clamp(40px,5vw,64px)] flex min-w-0 max-w-[780px] flex-col gap-[22px]">
+          <Eyebrow index={x.index} label={x.label} animated />
+          <LineTitle
+            id="services-title"
+            lines={x.title}
+            className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
+          />
         </div>
 
         <div className="bento">

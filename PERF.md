@@ -6,12 +6,12 @@ Mesures prises sur `pnpm build && pnpm start` en local (Node 22, Chromium 141 he
 
 ## Scores Lighthouse
 
-| Page                    | Perf | A11y | Best practices | SEO | FCP   | LCP   | CLS | TBT    |
-| ----------------------- | ---- | ---- | -------------- | --- | ----- | ----- | --- | ------ |
-| Accueil `/fr` — mobile  | 92   | 100  | 100            | 100 | 1,1 s | 3,2 s | 0   | 110 ms |
-| Accueil `/fr` — desktop | 100  | 100  | 100            | 100 | 0,3 s | 0,7 s | 0   | 0 ms   |
-| Étude de cas — mobile   | 92   | 100  | 100            | 100 | 1,1 s | 3,3 s | 0   | 50 ms  |
-| Étude de cas — desktop  | 100  | 100  | 100            | 100 | 0,3 s | 0,8 s | 0   | 0 ms   |
+| Page                    | Perf | A11y | Best practices | SEO | FCP   | LCP   | CLS | TBT   |
+| ----------------------- | ---- | ---- | -------------- | --- | ----- | ----- | --- | ----- |
+| Accueil `/fr` — mobile  | 94   | 100  | 100            | 100 | 1,1 s | 3,1 s | 0   | 40 ms |
+| Accueil `/fr` — desktop | 100  | 100  | 100            | 100 | 0,3 s | 0,7 s | 0   | 0 ms  |
+| Étude de cas — mobile   | 92   | 100  | 100            | 100 | 1,1 s | 3,3 s | 0   | 50 ms |
+| Étude de cas — desktop  | 100  | 100  | 100            | 100 | 0,3 s | 0,8 s | 0   | 0 ms  |
 
 (Mobile : variance de ± 4 points d'un run à l'autre sur le LCP simulé des études de cas, 87 à 94.)
 
@@ -67,7 +67,9 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
 4. **`content-visibility: auto`** sur les sections basses des études de cas. Pas sur l'accueil : ses sections sont des
    cibles d'ancres (`#contact`, `#equipe`…) et la hauteur estimée faussait la position d'arrivée avec Lenis.
 5. **Hero LCP-safe** : les lignes du H1 sont révélées par masque (`overflow: clip` + `translate`), le texte est du
-   vrai HTML, rien ne démarre à `opacity: 0` dans le bloc LCP.
+   vrai HTML, rien ne démarre à `opacity: 0` dans le bloc LCP. Le hero fait 72 % de l'écran ; le titre « À propos »,
+   qui affleure le pli au chargement, entre avec la page (`.intro`) et non au scroll : un reveal scroll-driven à
+   mi-course le laissait quasi transparent au moment de l'audit (contraste 1,16 signalé par axe).
 6. **Hero WebGL « courant chromatique »** (`components/motion/ChromaCurrent.tsx`, 3,8 kB gzip, pas de bibliothèque) :
    le champ lumineux est calculé une fois par point de la grille (texture ≈ 160 × 100 texels) puis les points sont
    dessinés dans une seconde passe, soit ~80 × moins de travail qu'un shader par pixel. La boucle ne tourne que sur GPU

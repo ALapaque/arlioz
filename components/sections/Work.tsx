@@ -27,9 +27,14 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
               className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
             />
           </div>
-          <p className="sx-up sx-late m-0 max-w-[420px] text-[17px] leading-[1.6] text-muted">
-            {work.intro}
-          </p>
+          <div className="sx-up sx-late flex flex-wrap items-center gap-x-6 gap-y-2">
+            <p className="label-mono m-0 text-muted-3">{work.clientsLabel}</p>
+            <ul className="m-0 flex list-none flex-wrap items-center gap-x-6 gap-y-1.5 p-0 font-display text-[22px] font-medium tracking-[-0.02em] text-muted-2">
+              {work.clients.map((client) => (
+                <li key={client}>{client}</li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="flex flex-col gap-[clamp(72px,9vw,128px)]">
