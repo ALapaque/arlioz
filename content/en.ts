@@ -8,8 +8,7 @@ const restomax: Project = {
   type: 'Website & widget',
   client: 'Restomax',
   clientUrl: 'https://restomax.be',
-  summary:
-    'Restomax’s online booking system: a widget in each restaurant’s colours that simplifies reservation management and reduces no-shows.',
+  summary: 'A website and an online booking widget, in each restaurant’s colours.',
   highlights: 'Up to 2 h saved per day · Anti no-show · Customisable',
   tags: ['React', 'Recoil', 'Nx', 'MUI', 'Emotion', 'TypeScript'],
   demoUrl: 'https://natithai.book.ezordr.app/',
@@ -31,25 +30,24 @@ const restomax: Project = {
     phoneAlt: img(media.restomax.mobile2, ''),
   },
   caseStudy: {
-    tagline:
-      'Your new booking system: a website and an online booking widget, in each restaurant’s colours.',
+    tagline: 'A website and an online booking widget, in each restaurant’s colours.',
     intro:
-      'Restomax Book is Restomax’s online booking system. Available as a website and as a widget, customisable in each venue’s colours, it simplifies reservation management and adapts to every type of restaurant.',
-    stat: { value: '2 h', text: 'Up to two hours freed up every day for the restaurant team.' },
+      'Restomax’s online booking system: a customisable website and widget that simplify reservation management.',
+    stat: { value: '2 h', text: 'Freed up every day for the restaurant team.' },
     heroImage: img(
       media.restomax.desktop1,
       'Restomax Book for Nati Thai: choosing the party size and the service',
     ),
     features: [
-      { title: 'Simpler bookings', text: 'Every online reservation, managed from a single tool.' },
-      { title: 'Time saved', text: 'Up to two hours freed up every day for your team.' },
-      { title: 'In your colours', text: 'An interface customisable in your venue’s colours.' },
-      { title: 'Fewer no-shows', text: 'Smart reservation management that limits absences.' },
+      { title: 'Simpler bookings', text: 'Every reservation managed from a single tool.' },
+      { title: 'Time saved', text: 'Up to two hours freed up per day for your team.' },
+      { title: 'In your colours', text: 'An interface in your venue’s colours.' },
+      { title: 'Fewer no-shows', text: 'Reservations managed smartly to limit absences.' },
       {
         title: 'A personalised service',
-        text: 'Your customers’ habits, recorded and restored at every visit.',
+        text: 'Your customers’ habits, found again at every visit.',
       },
-      { title: 'For every restaurant', text: 'A solution that adapts to every type of venue.' },
+      { title: 'For every restaurant', text: 'A solution suited to every type of venue.' },
     ],
     stack: [
       { category: 'Interface', name: 'React' },
@@ -98,7 +96,7 @@ const jkstudio: Project = {
   client: 'JK Studio',
   clientUrl: 'https://www.jkstudio.fr/',
   summary:
-    'JK Studio’s photography portfolio: galleries by category, a contact form and content that is easy to keep up to date.',
+    'A photography portfolio by gallery, with direct contact and content that is easy to update.',
   highlights: 'Nightlife · Weddings · Events · Dark and light mode',
   tags: ['Next.js', 'Supabase'],
   demoUrl: 'https://www.jkstudio.fr/',
@@ -114,28 +112,27 @@ const jkstudio: Project = {
     phone: img(media.jkstudio.mobile, 'jkstudio.fr on a phone'),
   },
   caseStudy: {
-    tagline:
-      'A photography portfolio that puts the images first: galleries by category, direct contact and content updated without a developer.',
+    tagline: 'A photography portfolio that puts the images first, updated without a developer.',
     intro:
-      'JK Studio is the portfolio of a photographer specialised in nightlife, weddings and events. We designed a fast, understated site where each gallery browses like a contact sheet, with a dark and a light theme and simple content management for the photographer.',
+      'The portfolio of a nightlife, wedding and event photographer: a fast, understated site where each gallery browses like a contact sheet.',
     heroImage: img(media.jkstudio.desktop, 'jkstudio.fr home page on desktop'),
     features: [
       {
         title: 'Galleries by category',
-        text: 'Nightlife, weddings, events: each world has its own gallery and rhythm.',
+        text: 'Nightlife, weddings, events: each world has its own gallery.',
       },
       {
         title: 'Images first',
-        text: 'Photos served at the right size, loaded on demand, with no loss of quality.',
+        text: 'Photos at the right size, loaded on demand.',
       },
-      { title: 'Dark and light', text: 'Two themes so the photos stay legible in any lighting.' },
+      { title: 'Dark and light', text: 'Two themes for legible photos in any lighting.' },
       {
         title: 'Contact form',
-        text: 'A simple quote request that lands straight in the photographer’s inbox.',
+        text: 'A quote request that lands straight with the photographer.',
       },
       {
         title: 'Easy to update',
-        text: 'Adding a series or changing a text requires no technical intervention.',
+        text: 'Add a series or a text, with no technical intervention.',
       },
       {
         title: 'Fast and well indexed',
@@ -213,7 +210,7 @@ export const en: SiteContent = {
     write: 'Write to us',
     follow: 'Follow',
     language: 'Language',
-    tagline: 'Digital development and GDPR compliance, since 2018. Based in Belgium.',
+    tagline: 'Digital development and GDPR compliance, since 2018.',
     cta: 'Let’s talk about your project',
     ctaShort: 'Let’s talk',
     linkedin: 'LinkedIn',
@@ -224,18 +221,8 @@ export const en: SiteContent = {
       { lead: 'Solid ', em: 'code.' },
       { lead: 'Protected ', em: 'data.' },
     ],
-    text: 'Arlioz brings two worlds together: digital development and data protection. Websites, web and mobile applications, GDPR compliance: one team to grow your business, calmly and intelligently.',
     ctaPrimary: 'Let’s talk about your project',
     ctaSecondary: 'See our work',
-    chips: [
-      { label: 'Privacy by design', dot: 'blue' },
-      { label: 'Web & mobile', dot: 'orange' },
-      { label: 'Since 2018', dot: 'green' },
-    ],
-    hint: 'Move the mouse · click to release a current',
-    scroll: 'Discover',
-    clientsLabel: 'In production at',
-    clients: ['Radyo', 'Restomax', 'JK Studio'],
   },
   about: {
     index: '01',
@@ -243,27 +230,26 @@ export const en: SiteContent = {
     year: '2018',
     yearLabel: 'Founded',
     title: [
-      { text: 'We bring two worlds together, ' },
+      { text: 'We bring ' },
       { text: 'data protection', mark: 'blue' },
       { text: ' and ' },
       { text: 'digital development', mark: 'orange' },
-      { text: ', to help companies ' },
+      { text: ' together to help your business ' },
       { text: 'grow', mark: 'green' },
-      { text: ' safely and intelligently.' },
+      { text: '.' },
     ],
-    logoLine: 'Three interlaced ribbons: our logo sums up the way we work.',
     pillars: [
       {
         title: 'Build',
-        text: 'Websites, web and mobile applications: we design and build your products with modern, proven technologies.',
+        text: 'Websites, web and mobile applications, with proven technologies.',
       },
       {
         title: 'Protect',
-        text: 'We make your GDPR compliance clear and concrete, and build it into your projects from the architecture up.',
+        text: 'Clear GDPR compliance, built in from the architecture up.',
       },
       {
         title: 'Grow',
-        text: 'Robust, scalable solutions designed to support your growth with peace of mind.',
+        text: 'Robust solutions that support your growth.',
       },
     ],
   },
@@ -271,12 +257,10 @@ export const en: SiteContent = {
     index: '02',
     label: 'Expertise',
     title: ['Two areas of expertise', 'that complement each other.'],
-    intro:
-      'An application, a GDPR audit, or both: you work directly with the experts who do the work.',
     rgpd: {
       tag: 'Data protection',
       title: 'GDPR consulting',
-      text: 'An expert at your side to bring your organisation into compliance, and keep it there.',
+      text: 'Bringing your organisation into compliance, and keeping it there.',
       items: [
         'Compliance audit',
         'Records of processing activities',
@@ -290,25 +274,25 @@ export const en: SiteContent = {
       {
         tag: 'Development',
         title: 'Web development',
-        text: 'Bespoke websites, platforms and widgets: fast, accessible and easy to evolve.',
+        text: 'Bespoke websites, platforms and widgets, fast and accessible.',
         icon: 'code',
       },
       {
         tag: 'Development',
         title: 'Cross-platform apps',
-        text: 'One code base for web and mobile: ordering, booking or marketplace, in your brand’s colours.',
+        text: 'One code base for web and mobile, in your brand’s colours.',
         icon: 'devices',
       },
       {
         tag: 'Development',
         title: 'Frontend architecture',
-        text: 'Monorepo, design system, state management: clean foundations for products and teams that grow.',
+        text: 'Monorepo, design system, state management: foundations that last.',
         icon: 'layout',
       },
       {
         tag: 'Development',
         title: 'Website optimisation',
-        text: 'Performance, Core Web Vitals, technical SEO and accessibility: a faster, more visible site.',
+        text: 'Performance, technical SEO, accessibility: a faster, more visible site.',
         icon: 'gauge',
       },
     ],
@@ -317,7 +301,7 @@ export const en: SiteContent = {
       title: 'Project stack architecture',
       text: [
         {
-          text: 'Technology choices, hosting, data flows and security: an architecture designed for compliance from day one. ',
+          text: 'Technologies, hosting, data flows, security: an architecture compliant from day one. ',
         },
         { text: 'Privacy by design', strong: true },
         { text: ', for real.' },
@@ -334,28 +318,26 @@ export const en: SiteContent = {
     index: '03',
     label: 'Work',
     title: ['Real projects,', 'live online.'],
-    intro: 'Online booking, photography portfolio: a few projects we designed and built.',
+    clientsLabel: 'In production at',
+    clients: ['Radyo', 'Restomax', 'JK Studio'],
     caseStudy: 'Case study',
     liveExample: 'See a live example',
     viewSite: 'Visit the site',
     clientPrefix: 'Client:',
   },
   stack: {
-    index: '04',
-    label: 'Stack',
-    title: 'The technologies we build with.',
+    label: 'Technologies',
     items: ['Angular', 'React', 'Next.js', 'Vue.js', 'Nuxt', 'NestJS', 'TypeScript'],
   },
   team: {
-    index: '05',
+    index: '04',
     label: 'Team',
     title: 'Two experts, directly.',
-    intro: 'You talk directly with the people who design, build and secure your project.',
     members: [
       {
         name: 'Guy Moins',
         role: 'IT architect & GDPR expert',
-        text: 'He frames your data processing, secures the architecture of your projects and makes GDPR compliance concrete for your teams.',
+        text: 'He frames your data and makes GDPR compliance concrete for your teams.',
         tags: ['GDPR consulting', 'IT architecture', 'Project stack'],
         initials: 'GM',
         photoLabel: 'Photo · Guy Moins',
@@ -364,7 +346,7 @@ export const en: SiteContent = {
       {
         name: 'Amaury Lapaque',
         role: 'Fullstack developer',
-        text: 'He designs and builds your websites and web and mobile applications, from the frontend architecture to the API.',
+        text: 'He designs and builds your websites and applications, from frontend to API.',
         tags: ['Angular', 'React · Next.js', 'Vue · Nuxt', 'NestJS', 'TypeScript'],
         photo: {
           ...media.team.amaury,
@@ -377,16 +359,16 @@ export const en: SiteContent = {
     ],
   },
   contact: {
-    index: '06',
+    index: '05',
     label: 'Contact',
     title: 'A project? A GDPR question? Let’s talk.',
-    text: 'Tell us in a few lines where you stand. We come back to you with a first opinion and the next steps.',
+    text: 'Tell us where you stand, we come back to you with a first opinion.',
     emailLabel: 'E-mail',
     linkedinLabel: 'LinkedIn',
     linkedinValue: 'Arlioz',
     direct: {
       title: 'An e-mail or a LinkedIn message is all it takes.',
-      text: 'Describe your project or question in a few lines; we come back to you with a first opinion and the next steps.',
+      text: 'Describe your project in a few lines.',
       email: 'Write to contact@arlioz.be',
       linkedin: 'Contact us on LinkedIn',
       subject: 'Project / GDPR question — contact request',
@@ -395,7 +377,7 @@ export const en: SiteContent = {
     },
   },
   footer: {
-    tagline: 'Your trusted partners in data protection and digital development.',
+    tagline: 'Data protection and digital development.',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Legal',
@@ -420,7 +402,7 @@ export const en: SiteContent = {
       featuresTitle: 'What the solution brings.',
       stack: 'Tech stack',
       stackTitle: 'A solid, typed foundation.',
-      stackIntro: 'The technologies used to build the site and the booking widget.',
+      stackIntro: 'The technologies used for this project.',
       gallery: 'In pictures',
       galleryTitle: 'The interface, screen by screen.',
     },
@@ -428,7 +410,7 @@ export const en: SiteContent = {
     nextAria: 'Next project:',
     cta: {
       title: 'A similar project? Let’s talk.',
-      text: 'Online booking, portfolio, bespoke platform: we build tools that are GDPR-compliant from the first line of code.',
+      text: 'Booking, portfolio, bespoke platform: tools that are GDPR-compliant from the first line.',
       write: 'Write to contact@arlioz.be',
       home: 'Back to home',
     },

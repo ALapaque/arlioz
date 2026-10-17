@@ -40,7 +40,8 @@ app/
   sitemap.ts robots.ts manifest.ts icon.png apple-icon.png favicon.ico
   globals.css            tokens @theme + CSS de la maquette (animations, hover, breakpoints)
 components/
-  sections/              Hero, About, Expertises, Work, StackMarquee, Team, Contact, LegalPage (Server Components)
+  sections/              Hero, StackMarquee (bandeau technologies sous le hero), About, Expertises, Work, Team,
+                         Contact, LegalPage (Server Components)
   layout/                Header, HeaderControls (menu, langue — client), Footer
   motion/                SmoothScroll (Lenis), ChromaCurrent (WebGL), ScrollRevealFallback, LoopGuard, ScrollState, Magnetic
   ui/                    Button, Eyebrow, LineTitle, Chips, DeviceStage, BrowserBar, Glow, Icons, JsonLd, LogoMark
